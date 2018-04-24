@@ -37,6 +37,7 @@ class SpotsShowContainer extends Component {
         id={this.state.spot.id}
         name={this.state.spot.name}
         artist={this.state.spot.artist}
+        description={this.state.spot.description}
         rating={this.state.spot.rating}
         location={this.state.spot.location}
         access={this.state.spot.access}

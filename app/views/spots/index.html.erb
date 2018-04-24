@@ -1,2 +1,9 @@
 
-<h1> Test Text </h1>
+<% @spots.each do |spot| %>
+<h2><%= spot.name %></h2>
+<img src="<%= spot.photo %>" >
+<h3><%= spot.description %> </h3>
+<h3><%= spot.location %></h3>
+<h3><%= spot.artist %></h3>
+<div>&nbsp;</div>
+<% end %>

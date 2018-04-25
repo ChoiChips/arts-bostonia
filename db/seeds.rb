@@ -18,5 +18,5 @@ spots = [
 ]
 
 spots.each do |item|
-  spot = Spot.create(item)
+  spot = Spot.create!(item)
 end

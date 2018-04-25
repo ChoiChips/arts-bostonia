@@ -24,14 +24,13 @@ body {
 .tile {
   margin: 20px;
   padding: 8px 30px;
-  border: 4px;
+  border: 4px solid gray;
   border-radius: 10px;
   height: 400px;
   width: 280px;
-  border-style: solid;
-  border-color: gray;
   background-color: #c0fefe;
   text-align: center;
+  font-family: 'sans serif';
   font-family: helvetica;
   overflow: scroll;
   font-size: .8em;
@@ -46,6 +45,8 @@ body {
   padding-top: 3px;
   padding-bottom: 10px;
 }
-
+h1 {
+  font-style: italic;
+}
 a { color: black; }
 a:hover { color: gray; }

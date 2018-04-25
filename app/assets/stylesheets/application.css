@@ -15,3 +15,37 @@
  *= require foundation_and_overrides
 
  */
+
+
+body {
+  background-color: black;
+}
+
+.tile {
+  margin: 20px;
+  padding: 8px 30px;
+  border: 4px;
+  border-radius: 10px;
+  height: 400px;
+  width: 280px;
+  border-style: solid;
+  border-color: gray;
+  background-color: #c0fefe;
+  text-align: center;
+  font-family: helvetica;
+  overflow: scroll;
+  font-size: .8em;
+}
+.title {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 1.2em;
+  text-align: center;
+}
+.photo {
+  padding-top: 3px;
+  padding-bottom: 10px;
+}
+
+a { color: black; }
+a:hover { color: gray; }

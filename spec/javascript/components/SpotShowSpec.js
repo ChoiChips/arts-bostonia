@@ -10,7 +10,7 @@ describe('<SpotShow />', () => {
         description="G dubs yo"
         location="Da park"
         artist="Unknown"
-        rating=5
+        rating="5"
         access="ez pz"
         aesthetic="hot"
       />
@@ -23,7 +23,6 @@ describe('<SpotShow />', () => {
   })
 
   it('renders p tags with the spot description, location, artist, rating, access, and aesthetic', () => {
-    expect(wrapper.text())
   })
 
 })

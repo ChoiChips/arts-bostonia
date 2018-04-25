@@ -28,7 +28,6 @@ class SpotsShowContainer extends Component {
       this.setState ({ spot: spot})
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
-    })
   }
 
   render() {

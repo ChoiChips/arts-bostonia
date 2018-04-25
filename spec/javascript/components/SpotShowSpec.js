@@ -13,7 +13,7 @@ describe('<SpotShow />', () => {
         rating=5
         access="ez pz"
         aesthetic="hot"
-      >
+      />
     )
   })
 

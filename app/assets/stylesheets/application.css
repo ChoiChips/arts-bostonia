@@ -13,10 +13,9 @@
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
  */
 
-
+/*
 body {
   background-color: black;
 }
@@ -49,3 +48,4 @@ h1 {
 }
 a { color: black; }
 a:hover { color: gray; }
+*/

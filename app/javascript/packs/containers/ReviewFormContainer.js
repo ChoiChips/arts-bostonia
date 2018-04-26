@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import RatingSelect from "../components/RatingSelect"
 import DescriptionText from "../components/DescriptionText"
 
-class ReviewFormContainer extendes Component {
+class ReviewFormContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      rating: '',
+      ratingOptions: ['1 star', '2 stars', '3 stars', '4 stars', '5 stars'],
+      ratingSelected: '',
       description: '',
       errors: {}
     }
     this.handleRatingChange = this.handleRatingChange.bind(this)
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.handleClearForm = this.handleClearForm.bind(this)
     this.validateRatingSelection = this.validateRatingSelection.bind(this)
     this.validateDescription = this.validateDescription.bind(this)
@@ -28,7 +29,7 @@ class ReviewFormContainer extendes Component {
     })
   }
 
-  handleSubmit(event) {
+  handleFormSubmit(event) {
     event.preventDefault()
 
     let ratingValidation = this.validateRating(this.state.rating)
@@ -39,14 +40,19 @@ class ReviewFormContainer extendes Component {
         ratingSelected: this.state.rating,
         description: this.state.description
       }
-    }
     this.props.addNewReview(formPayload)
     this.handleClearForm(event)
+    }
   }
 
-  handleChange(event) {
-    this.validateRating(event.target.value)
-    this.setState({ [event.target.name]: event.target. })
+  handleRatingChange(event) {
+    this.validateRatingSelection(event.target.value)
+    this.setState({ [event.target.name]: event.target.value })
+  }
+
+  handleDescriptionChange(event) {
+    this.validateDescription(event.target.value)
+    this.setState({ [event.target.name]: event.target.value })
   }
 
   validateRatingSelection(selection) {
@@ -78,6 +84,7 @@ class ReviewFormContainer extendes Component {
   render() {
     let errorDiv;
     let errorItems;
+
     if (Object.keys(this.state.errors).length > 0) {
       errorItems = Object.values(this.state.errors).map(error => {
         return(<li key={error}>{error}</li>)
@@ -86,11 +93,11 @@ class ReviewFormContainer extendes Component {
     }
     return (
       <form className="callout" onSubmit={this.handleFormSubmit}>
-        Add a new review!
         {errorDiv}
+        Add a new review!
         <RatingSelect
           handlerFunction={this.handleRatingChange}
-          name='rating'
+          name='ratingSelected'
           label='Rating'
           options={this.state.ratingOptions}
           selectedOption={this.state.ratingSelected}
@@ -102,8 +109,8 @@ class ReviewFormContainer extendes Component {
           content={this.state.description}
         />
         <div className="button-group">
+          <input className="button" type="submit" value="Submit" />&nbsp;
           <button className="button" onClick={this.handleClearForm}>Clear</button>
-          <input className="button" type="submit" value="Submit" />
         </div>
       </form>
     );

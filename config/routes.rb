@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :spots, only: [:index,:show]
+  resources :spots, only: [:index,:show, :create]
 end

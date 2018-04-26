@@ -1,9 +1,9 @@
 import React from 'react';
 
 const RatingSelect = (props) => {
-  let optionElements = props.options.map(option => {
+  let optionElements = props.options.map((option, index) => {
     return (
-      <option key={option} value={option}>{option}</option>
+      <option key={option} value={index + 1}>{option}</option>
     );
   })
 

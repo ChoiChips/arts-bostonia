@@ -5,7 +5,7 @@ class SpotsController < ApplicationController
   end
   def show
     @spot = Spot.find(params[:id] )
-    @reviews = @spot.reviews
+    @reviews = Review.where(spot_id: params[:id])
   end
 
 end

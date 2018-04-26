@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SpotShow from "../components/SpotShow"
-// import { Link } from 'react-router';
+import ReviewsShowContainer from "./ReviewsShowContainer"
 
 class SpotsShowContainer extends Component {
   constructor(props){
@@ -33,37 +33,26 @@ class SpotsShowContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
-  //   fetch(`/api/v1/spots/${spotId}/reviews`, {
-  //     credentials: 'same-origin'
-  //   })
-  //   .then(response => {
-  //     if (response.ok) {
-  //       return response;
-  //     } else {
-  //       let errorMessage = `${response.status} (${response.statusText})`,
-  //         error = new Error(errorMessage);
-  //         throw(error);
-  //       }
-  //     })
-  //   .then(response => response.json())
-  //   .then(reviews => {
-  //     this.setState ({ reviews: reviews})
-  //   })
-  //   .catch(error => console.error(`Error in fetch: ${error.message}`))
-  // }
-
   render() {
     return(
       <div className="row spot-container">
-        <SpotShow
-          key={this.state.spot.id}
-          id={this.state.spot.id}
-          name={this.state.spot.name}
-          artist={this.state.spot.artist}
-          description={this.state.spot.description}
-          location={this.state.spot.location}
-          photo={this.state.spot.photo}
-        />
+        <div>
+          <SpotShow
+            key={this.state.spot.id}
+            id={this.state.spot.id}
+            name={this.state.spot.name}
+            artist={this.state.spot.artist}
+            description={this.state.spot.description}
+            location={this.state.spot.location}
+            photo={this.state.spot.photo}
+          />
+        </div>
+        <div>
+          <ReviewsShowContainer
+            key={this.state.spot.id}
+            id={this.state.spot.id}
+          />
+        </div>
       </div>
     )
   }

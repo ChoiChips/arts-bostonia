@@ -30,8 +30,7 @@ body {
   width: 280px;
   background-color: #c0fefe;
   text-align: center;
-  font-family: 'sans serif';
-  font-family: helvetica;
+  font-family: helvetica, 'sans serif';
   overflow: scroll;
   font-size: .8em;
 }

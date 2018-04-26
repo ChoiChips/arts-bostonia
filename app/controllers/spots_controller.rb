@@ -4,7 +4,8 @@ class SpotsController < ApplicationController
     #@spots = Spot.all
   end
   def show
-    #@spot = Spot.find(params[:id] )
+    @spot = Spot.find(params[:id] )
+    @reviews = @spot.reviews
   end
 
 end

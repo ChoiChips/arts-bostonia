@@ -16,14 +16,13 @@ class SpotsShowContainer extends Component {
 
   addNewReview(submission) {
     event.preventDefault();
-    fetch('/api/v1/reviews', {
+    fetch(`/api/v1/spots/${this.state.spot.id}/reviews.json`, {
       credentials: 'same-origin',
       method: 'POST',
       body: JSON.stringify(submission),
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
     })
     .then(response => {
-      // debugger;
       if (response.ok) {
         return response;
       } else {
@@ -34,7 +33,7 @@ class SpotsShowContainer extends Component {
     })
     .then(response => response.json())
     .then(review => {
-      let allReview = this.state.reviews
+      let allReviews = this.state.reviews
       this.setState({
         reviews: allReviews.concat(review)
       })

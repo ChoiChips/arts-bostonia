@@ -1,4 +1,6 @@
 class Api::V1::ReviewsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:create, :destroy]
+
   def index
     render json: Review.all
   end
@@ -10,13 +12,11 @@ class Api::V1::ReviewsController < ApplicationController
   def create
     review = Review.new(review_params)
 
-    if review.save
-      flash[:notice] = "Review added successfully"
-      # redirect_to 
-    else
-      flash[:notice] = @review.errors.full_messages.join(", ")
-      render action: "show"
-    end
+    review.spot = Spot.find(params[:spot_id])
+    review.user= current_user
+    review.save
+
+    render json: review
   end
 
   private

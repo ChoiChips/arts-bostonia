@@ -32,14 +32,19 @@ class ReviewFormContainer extends Component {
   handleFormSubmit(event) {
     event.preventDefault()
 
-    let ratingValidation = this.validateRating(this.state.rating)
+    let ratingValidation = this.validateRatingSelection(this.state.ratingSelected)
     let descriptionValidation = this.validateDescription(this.state.description)
+
+    // debugger;
 
     if (ratingValidation && descriptionValidation) {
       let formPayload = {
-        ratingSelected: this.state.rating,
-        description: this.state.description
+        rating: this.state.ratingSelected,
+        description: this.state.description,
+        spot_id: this.props.spot[0].spot_id,
+        user_id: this.props.user[0].user_id
       }
+    // debugger;
     this.props.addNewReview(formPayload)
     this.handleClearForm(event)
     }

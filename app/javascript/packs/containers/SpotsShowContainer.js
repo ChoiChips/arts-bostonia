@@ -8,18 +8,22 @@ class SpotsShowContainer extends Component {
     super(props)
     this.state = {
       spot:  {},
-      reviews: []
+      reviews: [],
+      user_reviews: []
     }
     this.addNewReview = this.addNewReview.bind(this)
   }
 
   addNewReview(submission) {
-    let spotId = this.props.id
-
     event.preventDefault();
-    fetch('/api/v1/spots/${spotId}',
-      { method: 'POST', body: JSON.stringify(submission) })
+    fetch('/api/v1/reviews', {
+      credentials: 'same-origin',
+      method: 'POST',
+      body: JSON.stringify(submission),
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+    })
     .then(response => {
+      // debugger;
       if (response.ok) {
         return response;
       } else {
@@ -30,7 +34,6 @@ class SpotsShowContainer extends Component {
     })
     .then(response => response.json())
     .then(review => {
-      // debugger;
       let allReview = this.state.reviews
       this.setState({
         reviews: allReviews.concat(review)
@@ -57,8 +60,9 @@ class SpotsShowContainer extends Component {
     .then(response => response.json())
     .then(spot => {
       this.setState ({
-        spot: spot.spot,
-        reviews: spot.reviews
+        spot: spot,
+        reviews: spot.reviews,
+        user_reviews: spot.user_reviews
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
@@ -93,7 +97,8 @@ class SpotsShowContainer extends Component {
         <div>
           <ReviewFormContainer
             addNewReview={this.addNewReview}
-            user={this.state.reviews.user_id}
+            user={this.state.user_reviews}
+            spot={this.state.user_reviews}
           />
         </div>
       </div>

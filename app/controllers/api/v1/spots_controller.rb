@@ -1,12 +1,12 @@
 class Api::V1::SpotsController < ApiController
 
+  serialization_scope :current_user
+
   def index
-    render json: { spots: Spot.all }
+    render json: Spot.all
   end
+
   def show
-    render json: {
-      spot: Spot.find(params[:id]),
-      reviews: Review.where(spot_id: params[:id])
-    }
+    render json: Spot.find(params[:id]), serializer: SpotShowSerializer
   end
 end

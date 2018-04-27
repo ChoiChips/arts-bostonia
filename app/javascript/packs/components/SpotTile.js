@@ -8,15 +8,17 @@ const SpotTile = (props) => {
   let name = props.name.toUpperCase()
 
   return (
-    <Link to={`/spots/${props.id}`}>
-      <div className="tile column small-12 medium-6 large-4 end spot-tile">
+
+    <div className="columns small-12 medium-6 large-4 end">
+      <Link className="spot-tile" to={`/spots/${props.id}`}>
         <div className="title"> {name} </div>
         <img className="photo" src={`${photo}`}/>
         <div>{props.description}</div>
         <div>{props.location}</div>
         <div>{props.artist}</div>
-      </div>
-    </Link>
+      </Link>
+    </div>
+
   );
 }
 //}
@@ -24,3 +26,4 @@ const SpotTile = (props) => {
 export default SpotTile;
 
 // columns small-12 medium-6 large-4
+

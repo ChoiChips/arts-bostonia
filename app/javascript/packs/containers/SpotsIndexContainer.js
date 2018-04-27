@@ -43,7 +43,11 @@ class SpotsIndexContainer extends Component {
 
     return (
       <div className="row spot-container">
-        {spots}
+        <div className="columns medium-11 medium-centered">
+          <div className="row">
+            {spots}
+          </div>
+        </div>
       </div>
     );
   }

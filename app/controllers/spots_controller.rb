@@ -11,7 +11,19 @@ class SpotsController < ApplicationController
   end
   def create
     @spot = Spot.new(spot_params)
-    @spot.save
+    if @spot.save
+      flash[:success] = 'Spot added successfully'
+      @spot.save
+      redirect_to @spot
+    else
+      @errors = @spot.errors.full_messages
+      # flash[:failure] = errors
+      render :new
+
+    end
+  end
+
+  def edit
 
   end
 

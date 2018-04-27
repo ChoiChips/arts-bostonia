@@ -4,6 +4,16 @@
 
   <div class="columns small-12">
 
+    <% if @errors %>
+      <div class="panel callout alert">
+        <ul>
+          <% @errors.each do |error|%>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <%end%>
+
     <%= form_for(@spot) do |f| %>
       <div class="field">
         <%= f.label :name %><br />

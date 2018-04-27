@@ -1,6 +1,7 @@
-import SpotIndexContainer from '../../../app/javascript/packs/containers/SpotsIndexContainer'
+import SpotsIndexContainer from '../../../app/javascript/packs/containers/SpotsIndexContainer'
 import SpotTile from '../../../app/javascript/packs/components/SpotTile'
 import fetchMock from 'fetch-mock'
+import { shallow } from 'enzyme'
 
 describe('SpotsIndexContainer', () => {
   let wrapper;
@@ -23,17 +24,21 @@ describe('SpotsIndexContainer', () => {
       body: spots
     })
     wrapper = mount(
-      <SpotIndexContainer />
+      <SpotsIndexContainer />
     )
   });
 
   afterEach(fetchMock.restore)
 
-  it('should have the specified initial state', () => {
-    expect(wrapper.state()).toEqual({ spots: [] });
-  })
+  // it('should have the specified initial state', () => {
+  //   expect(wrapper.state()).toEqual({ spots: [] });
+  // })
+  // DPickett recommended leaving this test out because it's value null by setting state empty and testing if empty (redundant!)
 
-  // it('should render an SpotTile Component', () => {
-  //    expect(wrapper.find(SpotTile)).toBePresent();
-  //  });
+  it('should render an SpotTile Component', (done) => {
+     setTimeout(() => {
+       expect(wrapper.find(SpotTile)).toBePresent();
+       done()
+     }, 0)
+   });
 })

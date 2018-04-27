@@ -1,5 +1,5 @@
 class Api::V1::ReviewsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:create, :destroy]
+  # skip_before_action :authenticate_user!, only: [:index, :create, :destroy]
 
   def index
     render json: Review.all

@@ -11,8 +11,10 @@ class SpotsController < ApplicationController
     @spot = Spot.new
   end
   def create
-
     @spot = Spot.new(spot_params)
+    #possible to pass in just current_user?
+    @spot.user = current_user
+
     if @spot.save
       flash[:success] = 'Spot added successfully'
       @spot.save

@@ -21,6 +21,7 @@
     </ul>
 
     <section class="top-bar-section">
+      <div><%= link_to 'Add New', new_spot_path%></div>
       <ul class="right">
         <%- if current_user -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>

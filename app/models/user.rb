@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
 
    has_many :reviews
-   has_many :spots 
+   has_many :spots
+   mount_uploader :avatar, AvatarUploader
 end

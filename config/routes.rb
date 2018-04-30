@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'spots#index'
+  root "spots#index"
+
   devise_for :users
 
   namespace :api do

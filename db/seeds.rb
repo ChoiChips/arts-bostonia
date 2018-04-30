@@ -25,3 +25,8 @@ spots = [
 spots.each do |item|
   spot = Spot.create!(item)
 end
+
+user_1 = User.last
+spot_1 = Spot.last
+
+Review.create!(description: "Some amazing place!", rating: 5, spot: spot_1, user: user_1)

@@ -44,6 +44,22 @@ class SpotsController < ApplicationController
   end
 
   def edit
+    @spot = Spot.find(params[:id])
+  end
+
+  def update
+    @spot = Spot.find(params[:id])
+
+    if @spot.update(spot_params)
+      flash[:success] = 'Spot updated successfully'
+      @spot = @spot.update(spot_params)
+      redirect_to spot_path
+    else
+      # flash[:fail] = 'Spot failed update'
+      @errors = @spot.errors.full_messages
+      render :edit
+
+    end
 
   end
 

@@ -3,5 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  mount_uploader :avatar, AvatarUploader
+
+
+   has_many :reviews
+   has_many :spots
+   mount_uploader :avatar, AvatarUploader
 end

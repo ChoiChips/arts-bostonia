@@ -20,7 +20,7 @@ class SpotsIndexContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        this.setState({ spots: body.spots });
+        this.setState({ spots: body });
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }

@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :spots, only: [:index,:show,:create,:new,:edit,:update]
+
   get "*path", to: 'spots#index'
 end

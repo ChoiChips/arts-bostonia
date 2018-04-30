@@ -35,7 +35,7 @@ class SpotsIndexContainer extends Component {
           name={spot.name}
           location={spot.location}
           description={spot.description}
-          photo={spot.photo}
+          photo={spot.photo.url}
           artist={spot.artist}
         />
       )

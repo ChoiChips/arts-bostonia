@@ -23,6 +23,8 @@ class PhotoUploader < CarrierWave::Uploader::Base
     # "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
     if Rails.env.development?
       "arts-bostonia-development"
+    elsif Rails.env.production?
+      "arts-bostonia-production"
     end
   end
 

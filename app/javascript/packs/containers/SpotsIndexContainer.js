@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import SpotTile from '../components/SpotTile';
+import SearchApp from '../components/SearchApp'
 
 class SpotsIndexContainer extends Component {
   constructor(props){
     super(props)
-    this.state = { spots: [] }
+      this.state = { spots: [] }
   }
 
   componentDidMount(){
@@ -42,8 +43,13 @@ class SpotsIndexContainer extends Component {
     })
 
     return (
-      <div className="row spot-container">
-        {spots}
+      <div>
+        <div>
+          <SearchApp />
+        </div>
+        <div className="row spot-container">
+          {spots}
+        </div>
       </div>
     );
   }

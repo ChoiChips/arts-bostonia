@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Router, browserHistory, Route, IndexRoute } from 'react-router';
 import SpotsIndexContainer from './containers/SpotsIndexContainer';
 import SpotsShowContainer from './containers/SpotsShowContainer';
-import NavBar from './components/NavBar';
+import SearchApp from './components/SearchApp'
 
 class Routes extends Component {
 
@@ -14,7 +14,7 @@ class Routes extends Component {
   render() {
     return (
       <Router history={browserHistory}>
-        <Route path='/' component={NavBar} >
+        <Route path='/'>
           <IndexRoute component={SpotsIndexContainer} />
           <Route path="spots/:id" component={SpotsShowContainer}/>
         </Route>

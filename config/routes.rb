@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :spots, only: [:index, :show] do
         resources :reviews, only: [:index, :create]
       end
+      resources :reviews, only: [:index, :show, :create]
     end
   end
 

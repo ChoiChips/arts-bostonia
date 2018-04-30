@@ -40,9 +40,9 @@ body {
   font-weight: bold;
   font-style: italic;
   font-size: 1.25em;
-
-
 }
+
+
 .photo {
   margin-top: 3px;
   margin-bottom: 10px;
@@ -56,3 +56,5 @@ a {
   color: #333333;
 }
 a:hover { color: gray; }
+
+.navlink { color: white; }

@@ -1,5 +1,4 @@
 class Api::V1::SpotsController < ApiController
-
   serialization_scope :current_user
 
   def index

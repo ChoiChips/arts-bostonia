@@ -33,11 +33,21 @@
     </section>
   </nav>
 
-  <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
+<% if !flash.empty? %>
+  <div class="row">
+    <div class="columns medium-8">
+      <div class="panel callout text-center">
+
+        <%- flash.each do |key, value| -%>
+          <div class="flash flash-<%= key %>">
+            <%= value %>
+          </div>
+        <%- end -%>
+
+      </div>
     </div>
-  <%- end -%>
+  </div>
+<% end %>
 
   <%= yield %>
 

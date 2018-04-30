@@ -2,8 +2,12 @@ class SpotsController < ApplicationController
 
   before_action :authorize_user, except: [:index,:show]
 
+
   def index
+    # @last = Spot.last
+    # binding.pry
   end
+
   def show
   end
 
@@ -11,10 +15,23 @@ class SpotsController < ApplicationController
     @spot = Spot.new
   end
   def create
-    @spot = Spot.new(spot_params)
-    #possible to pass in just current_user?
-    @spot.user = current_user
+    # how do we specify the full AWS path before storing it in the DB:
+    # img_filename = spot_params[:photo].original_filename
+    # aws_url = "https://s3.amazonaws.com/arts-bostonia/arts-bostnia-development/"
+    # spot_params[:photo] = aws_url + img_filename
 
+
+    @spot = Spot.new(spot_params)
+    # @spot.photo = aws_url + img_filename
+    # binding.pry
+    # img_directory = "#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}/"
+
+    # if Rails.env.development?
+    #   @spot.photo = aws_url + img_directory + "#{@spot.photo.filename}"
+    #   binding.pry
+    # end
+
+    @spot.user = current_user
     if @spot.save
       flash[:success] = 'Spot added successfully'
       @spot.save

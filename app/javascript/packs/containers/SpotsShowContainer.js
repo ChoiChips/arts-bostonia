@@ -68,6 +68,7 @@ class SpotsShowContainer extends Component {
   }
 
   render() {
+    debugger;
     return(
       <div className="spot-container">
         <div className="row">
@@ -96,8 +97,7 @@ class SpotsShowContainer extends Component {
         <div>
           <ReviewFormContainer
             addNewReview={this.addNewReview}
-            user={this.state.user_reviews}
-            spot={this.state.user_reviews}
+            spot={this.props.params}
           />
         </div>
       </div>

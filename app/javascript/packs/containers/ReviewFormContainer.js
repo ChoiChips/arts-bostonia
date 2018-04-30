@@ -39,7 +39,7 @@ class ReviewFormContainer extends Component {
       let formPayload = {
         rating: this.state.ratingSelected,
         description: this.state.description,
-        spot_id: this.props.spot[0].spot_id
+        spot_id: this.props.spot
       }
     this.props.addNewReview(formPayload)
     this.handleClearForm(event)

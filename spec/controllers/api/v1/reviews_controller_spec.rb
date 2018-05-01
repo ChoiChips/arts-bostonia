@@ -4,12 +4,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
 
   user1 = FactoryBot.create(:user)
   user2 = FactoryBot.create(:user)
-  # spot1 = FactoryBot.create(:spot)
-  # review1 = FactoryBot.create(:review)
-  # review2 = FactoryBot.create(:review)
 
-  # let!(:user1) { User.create!(email: "testemail1@example.com", password: "password", password_confirmation: "password")}
-  # let!(:user2) { User.create!(email: "testemail2@example.com", password: "password", password_confirmation: "password")}
   let!(:test_spot) { Spot.create!(name: "Test name", location:"Test location", description: "Test description", photo: "Test photo")}
   let!(:first_review) { Review.create!(description: "Test description", rating: 5, spot: test_spot, user: user1) }
   let!(:second_review) { Review.create!(description: "Test description", rating: 5, spot: test_spot, user: user2) }
@@ -20,7 +15,6 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       returned_json = JSON.parse(response.body)
     end
 
-    # need to clarify how the reviews are ordered
     it "should return a list of all the reviews ordered by date" do
       get :index
       returned_json = JSON.parse(response.body)

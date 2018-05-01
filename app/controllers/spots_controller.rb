@@ -11,6 +11,7 @@ class SpotsController < ApplicationController
   def new
     @spot = Spot.new
   end
+
   def create
     @spot = Spot.new(spot_params)
 
@@ -50,7 +51,6 @@ class SpotsController < ApplicationController
 
   def authorize_user
     if !user_signed_in?
-      # raise ActionController::RoutingError.new("Not Found ipsum")
       redirect_to root_path
     end
   end

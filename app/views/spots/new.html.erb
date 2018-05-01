@@ -15,12 +15,12 @@
 
     <%= form_for(@spot, :html => { :class => 'form' }) do |f|  %>
       <div class="field">
-        <%= f.label :name, :class => "label" %><br />
+        <%= f.label :name, class: "label" %><br />
         <%= f.text_field :name %>
       </div>
 
       <div class="field">
-        <%= f.label :description, :class => "label" %><br />
+        <%= f.label :description, class: "label" %><br />
         <%= f.text_field :description %>
       </div>
 
@@ -30,17 +30,17 @@
       </div>
 
       <div class="field">
-        <%= f.label :photo, :class => "label" %><br />
+        <%= f.label :photo, class: "label" %><br />
         <%= f.file_field :photo %>
       </div>
 
       <div class="field">
-        <%= f.label :artist, :class => "label" %><br />
+        <%= f.label :artist, class: "label" %><br />
         <%= f.text_field :artist %>
       </div>
 
       <div class="actions">
-        <%= f.submit "Add Spot", :class => "button form-submit" %>
+        <%= f.submit "Add Spot", class: "button form-submit" %>
       </div>
     <% end %>
 

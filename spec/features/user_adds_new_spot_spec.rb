@@ -20,26 +20,11 @@ feature 'authenticated user adds new spot' do
 
     click_button 'Log in'
   end
-  # scenario 'clicks add new spot link in nav' do
-  # end
-  # scenario 'clicks add new spot link in page body' do
-  # end
   scenario 'fill out add new spot form' do
 
     visit new_spot_path
 
     expect(page).to have_content('Add New Art Spot')
 
-    # fill_in 'Name', with: "Cool new art spot"
-    # fill_in 'Description', with: "Lorem ipsum dolum sita met."
-    # fill_in 'Location', with: "Boston, MA"
-
-    # click_button 'Add Spot'
-
-    # visit spot_path
-
-    # expect(page).to have_content('Cool new art spot')
-    # expect(page).to have_content('Lorem ipsum dolum sita met.')
-    # expect(page).to have_content('Boston, MA')
   end
 end

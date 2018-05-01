@@ -25,12 +25,22 @@
         <%- if current_user -%>
           <li><%= link_to '+ Add New Spot', new_spot_path, :class => "test" %></li>
           <li><%= link_to 'Activity' %></li>
-          <!-- <li><%= link_to 'Profile', edit_user_registration_path %></li> -->
-          <li></li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+
+          <li><%= link_to edit_user_registration_path do %></li>
+            <% if current_user.avatar.path == nil %>
+              <%= 'Profile' %>
+            <% else %>
+            <img src="<%= current_user.avatar %>" class="profile-avatar image--rounded">
+            <% end %>
+          <% end %>
+
+
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li><%= link_to 'Sign In', new_user_session_path %></li>
+
+
         <%- end -%>
       </ul>
     </section>

@@ -54,6 +54,12 @@ body {
   padding-top: 3px;
   padding-bottom: 10px;
 }
+
+.profile-avatar {
+  height: 45px;
+
+}
+
 h1 {
   font-style: italic;
 }

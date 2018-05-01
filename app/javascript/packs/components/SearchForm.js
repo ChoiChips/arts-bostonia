@@ -7,9 +7,10 @@ const SearchForm = props => {
 
   let Search = <span>
     <input
-    type='text'
-    onChange={handleSearch}
-    placeholder="Search" />
+      type='text'
+      onChange={handleSearch}
+      placeholder="Search"
+    />
   </span>;
 
   return(

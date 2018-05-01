@@ -29,21 +29,17 @@ class SearchApp extends React.Component {
     .then(response => response.json())
     .then(spots => {
       let tempResults = []
-      // debugger;
       spots.forEach((spot) => {
         if (spot.name.toLowerCase().includes(input.toLowerCase())) {
           tempResults.push(spot)
         }
       })
-      console.log(tempResults)
-      // console.log(this.state)
       this.setState({
         searchResults: tempResults
       });
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
     this.props.updateSearchResults(this.state.searchText, this.state.searchResults)
-
   }
 
   render() {

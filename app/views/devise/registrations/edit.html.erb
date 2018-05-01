@@ -16,6 +16,11 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
+      <div>
+        <%= f.label :avatar %><br/>
+        <%= f.file_field :avatar  %>
+      </div>
+
       <div class="field">
         <%= f.label :password, :class => "label" %> <i>(leave blank if you don't want to change it)</i><br />
         <%= f.password_field :password, autocomplete: "off" %>

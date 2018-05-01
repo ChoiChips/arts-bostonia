@@ -6,9 +6,12 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :spots, only: [:index, :show] do
-        resources :reviews, only: [:index, :create]
+        resources :reviews, only: [:index, :create] 
       end
-      resources :reviews, only: [:index, :show, :create]
+
+      resources :reviews, only: [:index, :show, :create] do
+        resources :votes, only: [:index, :create]
+      end
     end
   end
 

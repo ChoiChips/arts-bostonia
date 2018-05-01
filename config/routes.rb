@@ -5,14 +5,24 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+
       resources :spots, only: [:index, :show] do
         resources :reviews, only: [:index, :create]
       end
+
+      resources :users, only: [:show] do
+        resources :spots, only: [:index]
+      end
+
       resources :reviews, only: [:index, :show, :create]
     end
   end
 
+<<<<<<< HEAD
   resources :spots, only: [:index, :show, :create, :new, :edit, :update]
+=======
+  resources :spots, only: [:index,:show,:create,:new,:edit,:update]
+>>>>>>> master
 
   get "*path", to: 'spots#index'
 end

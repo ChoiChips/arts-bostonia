@@ -1,7 +1,9 @@
 class Api::V1::ReviewsController < ApplicationController
 
   def index
-    render json: Review.all
+    spot = Spot.find(params[:spot_id])
+    reviews = spot.reviews
+    render json: reviews
   end
 
   def show

@@ -2,10 +2,18 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 
+<<<<<<< HEAD
 user_1 = User.create!(role: 'member', :email => 'nick@gmail.com', password: 'topsecret', password_confirmation: 'topsecret')
 user_2 = User.create!(role: 'member', :email => 'brianna@gmail.com', password: 'topsecret', password_confirmation: 'topsecret')
 user_3 = User.create!(role: 'member', :email => 'amylynn@gmail.com', password: 'topsecret', password_confirmation: 'topsecret')
 admin = User.create!(role: 'admin', :email => 'ateam@gmail.com', password: 'topsecret', password_confirmation: 'topsecret')
+=======
+
+user_1 = User.create!(:role => 'member', :email => 'nick@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+user_2 = User.create!(:role => 'member', :email => 'brianna@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+user_3 = User.create!(:role => 'member', :email => 'amylynn@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+admin = User.create!(:role => 'admin', :email => 'ateam@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+>>>>>>> master
 
 spots = [
   { name: 'Little Ducklings',location:'Boston Common, Boston MA',description: 'all the ducks', photo: 'https://cdn1.sph.harvard.edu/wp-content/uploads/sites/48/2012/09/make-way-for-ducklings-5.jpg', user: user_1},
@@ -21,3 +29,11 @@ spots = [
 spots.each do |item|
   spot = Spot.create!(item)
 end
+<<<<<<< HEAD
+=======
+
+user_1 = User.last
+spot_1 = Spot.last
+
+Review.create!(description: "Some amazing place!", rating: 5, spot: spot_1, user: user_1)
+>>>>>>> master

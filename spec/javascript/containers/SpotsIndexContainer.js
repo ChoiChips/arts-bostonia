@@ -1,5 +1,6 @@
 import SpotsIndexContainer from '../../../app/javascript/packs/containers/SpotsIndexContainer'
 import SpotTile from '../../../app/javascript/packs/components/SpotTile'
+import SearchApp from '../../../app/javascript/packs/components/SearchApp'
 import fetchMock from 'fetch-mock'
 import { shallow } from 'enzyme'
 
@@ -7,7 +8,7 @@ describe('SpotsIndexContainer', () => {
   let wrapper;
 
   beforeEach(() => {
-    // spyOn(SpotIndexContainer.prototype, 'handleClick').and.callThrough();
+    spyOn(SpotsIndexContainer.prototype, 'updateSearchResults').and.callThrough();
     let spots = [
       { name: 'Little Ducklings',location:'Boston Common, Boston MA',description: 'all the ducks', photo: 'https://cdn1.sph.harvard.edu/wp-content/uploads/sites/48/2012/09/make-way-for-ducklings-5.jpg' },
       { name: 'Abe Blinkin',location:'1 Cambridge Sq, Cambridge MA',description: 'abe is the man', photo: 'http://www.talkingstatues.co.uk/stockist_images/chicagoadmin/530x1530_lincoln.jpg' },
@@ -30,16 +31,18 @@ describe('SpotsIndexContainer', () => {
 
   afterEach(fetchMock.restore)
 
-  // it('should have the specified initial state', () => {
-  //   expect(wrapper.state()).toEqual({ spots: [] });
-  // })
-  // DPickett recommended leaving this test out because it's value null by setting state empty and testing if empty (redundant!)
-
   it('should render an SpotTile Component', (done) => {
      setTimeout(() => {
        expect(wrapper.find(SpotTile)).toBePresent();
        done()
      }, 0)
    });
+
+ it('should render an SearchApp Component', (done) => {
+    setTimeout(() => {
+      expect(wrapper.find(SearchApp)).toBePresent();
+      done()
+    }, 0)
+  });
 })
 

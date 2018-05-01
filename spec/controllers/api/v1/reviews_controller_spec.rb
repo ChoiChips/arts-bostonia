@@ -11,7 +11,7 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
 
   # let!(:user1) { User.create!(email: "testemail1@example.com", password: "password", password_confirmation: "password")}
   # let!(:user2) { User.create!(email: "testemail2@example.com", password: "password", password_confirmation: "password")}
-  let!(:test_spot) { Spot.create!(name: "Test name", location:"Test location", description: "Test description", photo: "Test photo")}
+  let!(:test_spot) { Spot.create!(name: "Test name", location:"Test location", description: "Test description", photo: "Test photo",user: user1)}
   let!(:first_review) { Review.create!(description: "Test description", rating: 5, spot: test_spot, user: user1) }
   let!(:second_review) { Review.create!(description: "Test description", rating: 5, spot: test_spot, user: user2) }
 

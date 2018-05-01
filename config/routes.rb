@@ -18,11 +18,7 @@ Rails.application.routes.draw do
     end
   end
 
-<<<<<<< HEAD
   resources :spots, only: [:index, :show, :create, :new, :edit, :update]
-=======
-  resources :spots, only: [:index,:show,:create,:new,:edit,:update]
->>>>>>> master
 
   get "*path", to: 'spots#index'
 end

@@ -42,3 +42,4 @@ describe('SpotsIndexContainer', () => {
      }, 0)
    });
 })
+

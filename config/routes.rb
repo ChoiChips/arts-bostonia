@@ -10,9 +10,12 @@ Rails.application.routes.draw do
         resources :reviews, only: [:index, :create]
       end
 
-      resources :users, only: [:show] do
-        resources :spots, only: [:index]
-      end
+      resources :users, only: [:index]
+
+      # how do we nest; /users/spots, /users/shmugana
+      # resources :users, only: [:index] do
+      #   resources :spots, only: [:index]
+      # end
 
       resources :reviews, only: [:index, :show, :create]
     end

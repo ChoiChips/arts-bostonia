@@ -68,7 +68,6 @@ class SpotsShowContainer extends Component {
   }
 
   render() {
-    debugger;
     return(
       <div className="spot-container">
         <div className="row">

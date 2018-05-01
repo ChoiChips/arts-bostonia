@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (reactElement) {
     ReactDOM.render(
-      // <h1>Boo yaa</h1>,
       <Routes/>,
       reactElement
     )

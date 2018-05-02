@@ -1,0 +1,10 @@
+
+<h1>User All Page in Users</h1>
+
+<% @users.each do |user| %>
+<%= user.email %> <br/>
+<%= user.role %> <br/>
+<%= user.last_sign_in_at %><br/>
+<%= link_to 'Delete', user, method: :delete, class: :button %>
+<br/> <br/>
+<% end %>

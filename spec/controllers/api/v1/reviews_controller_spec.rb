@@ -1,33 +1,27 @@
 require "rails_helper"
 
 RSpec.describe Api::V1::ReviewsController, type: :controller do
+  let(:returned_json) { JSON.parse(response.body) }
 
-  user1 = FactoryBot.create(:user)
-  user2 = FactoryBot.create(:user)
-
-  let!(:test_spot) { Spot.create!(name: "Test name", location:"Test location", description: "Test description", photo: "Test photo")}
-  let!(:first_review) { Review.create!(description: "Test description", rating: 5, spot: test_spot, user: user1) }
-  let!(:second_review) { Review.create!(description: "Test description", rating: 5, spot: test_spot, user: user2) }
 
   describe "GET#index" do
-    it "should return a list of all the reviews" do
-      get :index
-      returned_json = JSON.parse(response.body)
-    end
+    describe "returns review data" do
+      it "first test" do
+        test_user = User.create!(email: "test@gmail.com", password: "password", password_confirmation: "password")
+        test_spot = Spot.create!(name: "Test name", location:"Test location", description: "Test description", photo: "Test photo", user: test_user)
+        test_review = Review.create!(description: "Test description", rating: 5, spot: test_spot, user: test_user)
 
-    it "should return a list of all the reviews ordered by date" do
-      get :index
-      returned_json = JSON.parse(response.body)
+        get :index
 
-      expect(response.status).to eq 200
-      expect(response.content_type).to eq("application/json")
+        expect(response.status).to eq 200
+        expect(response.content_type).to eq("application/json")
 
-      expect(returned_json.length).to eq 2
-      expect(returned_json[0]["description"]).to eq "Test description"
-      expect(returned_json[0]["rating"]).to eq 5
+        expect(returned_json.first.keys).to eq ["id", "name", "photo", "artist"]
+        expect(returned_json.first["id"]).to eq(test_review.id)
+      end
 
-      expect(returned_json[1]["description"]).to eq "Test description"
-      expect(returned_json[1]["rating"]).to eq 5
     end
   end
+
+
 end

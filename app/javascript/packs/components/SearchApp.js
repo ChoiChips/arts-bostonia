@@ -12,7 +12,6 @@ class SearchApp extends React.Component {
   }
 
   handleSearch(input) {
-    this.props.updateSearchResults(input)
     this.setState({ searchText: input })
     this.props.updateSearchResults(input)
   }

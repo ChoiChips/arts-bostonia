@@ -8,9 +8,12 @@ class SpotsIndexContainer extends Component {
       this.state = {
         spots: [],
         searchText: '',
-        searchResults: []
+        searchResults: [],
+        count: 9
       }
     this.updateSearchResults = this.updateSearchResults.bind(this)
+    this.showMoreResults = this.showMoreResults.bind(this)
+    this.createSpotTile = this.createSpotTile.bind(this)
   }
 
   componentDidMount(){
@@ -31,6 +34,33 @@ class SpotsIndexContainer extends Component {
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  createSpotTile(array) {
+
+    let displayedSpotsArray = array.map( (spot) =>{
+      return (
+        <SpotTile
+          key={spot.id}
+          id={spot.id}
+          name={spot.name}
+          location={spot.location}
+          description={spot.description}
+          photo={spot.photo}
+          artist={spot.artist}
+        />
+      )
+    })
+    return displayedSpotsArray
+  }
+
+  showMoreResults(event) {
+    event.preventDefault()
+
+    let newCount = this.state.count + 9
+    this.setState({
+      count: newCount
+    })
+  }
+
   updateSearchResults(searchText) {
     let tempResults = []
     this.state.spots.forEach((spot) => {
@@ -38,49 +68,26 @@ class SpotsIndexContainer extends Component {
         tempResults.push(spot)
       }
     })
+
+    let tempCount = this.state.count
+    if (searchText.length === 1) {
+      tempCount = 9
+    }
     this.setState({
       searchText: searchText,
-      searchResults: tempResults
+      searchResults: tempResults,
+      count: tempCount
     })
   }
 
   render() {
 
     let displayedSpots;
-    let noResultsMessage;
 
     if (this.state.searchText === '') {
-      displayedSpots = this.state.spots.map( (spot) =>{
-        return (
-          <SpotTile
-            key={spot.id}
-            id={spot.id}
-            name={spot.name}
-            location={spot.location}
-            description={spot.description}
-            photo={spot.photo}
-            artist={spot.artist}
-          />
-        )
-      })
+      displayedSpots = this.createSpotTile(this.state.spots).slice(0, this.state.count)
     } else {
-      displayedSpots = this.state.searchResults.map( (spot) =>{
-        return (
-          <SpotTile
-            key={spot.id}
-            id={spot.id}
-            name={spot.name}
-            location={spot.location}
-            description={spot.description}
-            photo={spot.photo}
-            artist={spot.artist}
-          />
-        )
-      })
-
-      if (displayedSpots === []) {
-        noResultsMessage = "No results found!"
-      }
+      displayedSpots = this.createSpotTile(this.state.searchResults).slice(0, this.state.count)
     }
 
     return (
@@ -92,7 +99,9 @@ class SpotsIndexContainer extends Component {
         </div>
         <div className="row spot-container">
           {displayedSpots}
-          <h3>{noResultsMessage}</h3>
+        </div>
+        <div>
+          <button onClick={this.showMoreResults}>Show More</button>
         </div>
       </div>
     );

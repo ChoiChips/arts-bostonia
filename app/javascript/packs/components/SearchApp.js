@@ -6,40 +6,15 @@ class SearchApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchText: '',
-      searchResults: []
+      searchText: ''
     }
     this.handleSearch = this.handleSearch.bind(this)
   }
 
   handleSearch(input) {
+    this.props.updateSearchResults(input)
     this.setState({ searchText: input })
-    this.props.updateSearchResults(this.state.searchText, this.state.searchResults)
-
-    fetch('/api/v1/spots.json')
-    .then(response => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
-        throw(error);
-      }
-    })
-    .then(response => response.json())
-    .then(spots => {
-      let tempResults = []
-      spots.forEach((spot) => {
-        if (spot.name.toLowerCase().includes(input.toLowerCase())) {
-          tempResults.push(spot)
-        }
-      })
-      this.setState({
-        searchResults: tempResults
-      });
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
-    this.props.updateSearchResults(this.state.searchText, this.state.searchResults)
+    this.props.updateSearchResults(input)
   }
 
   render() {

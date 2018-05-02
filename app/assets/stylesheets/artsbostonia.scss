@@ -1,7 +1,4 @@
-// Because of the way asset pipeline works,
-// sass vars can't be imported this way.
-// @import '_partials/variables';
 
 @import '_partials/global';
 @import '_partials/user';
-@import '_partials/spot_tiles';
+@import '_partials/spots';

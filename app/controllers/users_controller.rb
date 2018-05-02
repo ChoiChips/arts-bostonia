@@ -10,10 +10,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
-
     @user = User.find(params[:id])
     if @user != current_user
       @user.destroy
+    else
+      flash[:failure] = "Admins can't delete own account"
     end
     redirect_to users_path
   end

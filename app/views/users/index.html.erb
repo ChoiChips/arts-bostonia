@@ -1,18 +1,34 @@
-
-<h1>User All Page in Users</h1>
-
 <div class="row">
-  <div class="columns medium-8 medium-centered">
+  <div class="columns medium-10">
+    <h1>All Users</h1>
 
+    <div class="row">
+      <div class="columns small-4">
+        <h4>Email</h4>
+      </div>
 
-<% @users.each do |user| %>
-<%= user.email %> <br/>
-<%= user.role %> <br/>
-<%= user.last_sign_in_at %><br/>
-<%= link_to 'Delete', user, method: :delete, class: :button %>
-<br/> <br/>
-<% end %>
+      <div class="columns small-4">
+        <h4>Last Logged In</h4>
+      </div>
 
+      <div class="columns small-4">
+        <h4>Delete User</h4>
+      </div>
+    </div>
 
-</div>
+    <% @users.each do |user| %>
+      <div class="row">
+        <div class="columns small-4">
+          <%= user.email %>
+        </div>
+        <div class="columns small-4">
+          <%= user.last_sign_in_at %>
+        </div>
+        <div class="columns small-4">
+          <%= link_to 'Delete', user, method: :delete, class: "button tiny alert user-#{user.id}" %>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
 </div>

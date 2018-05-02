@@ -21,6 +21,7 @@
     </ul>
 
     <section class="top-bar-section">
+      <div><%=link_to 'Add New Spot', new_spot_path, :class => "navlink"%></div>
       <ul class="right">
         <% if current_user %>
           <% if current_user.admin %>
@@ -49,11 +50,21 @@
     </section>
   </nav>
 
-  <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
+<% if !flash.empty? %>
+  <div class="row">
+    <div class="columns medium-8">
+      <div class="panel callout text-center">
+
+        <%- flash.each do |key, value| -%>
+          <div class="flash flash-<%= key %>">
+            <%= value %>
+          </div>
+        <%- end -%>
+
+      </div>
     </div>
-  <%- end -%>
+  </div>
+<% end %>
 
   <%= yield %>
 

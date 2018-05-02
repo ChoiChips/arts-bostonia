@@ -31,10 +31,16 @@ class SpotsIndexContainer extends Component {
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
-  updateSearchResults(searchText, searchResults) {
+  updateSearchResults(searchText) {
+    let tempResults = []
+    this.state.spots.forEach((spot) => {
+      if (spot.name.toLowerCase().includes(searchText.toLowerCase())) {
+        tempResults.push(spot)
+      }
+    })
     this.setState({
       searchText: searchText,
-      searchResults: searchResults
+      searchResults: tempResults
     })
   }
 

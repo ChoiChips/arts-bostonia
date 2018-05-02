@@ -1,9 +1,9 @@
 class Vote < ApplicationRecord
-  validates :value, numericality: {
-    only_integer: true,
-    greater_than_or_equal_to: -1,
-    less_than_or_equal_to: 1
-  }
-  has_many :reviews
-  has_many :users
+  belongs_to :review
+  belongs_to :user
+
+  validates :user, presence: true
+  validates :review, presence: true
+  validates :value, inclusion: { in: -1..1 }
+  validates :user_id, uniqueness: { scope: :review_id }
 end

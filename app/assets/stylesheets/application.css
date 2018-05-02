@@ -10,51 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ * require_tree .
  *= require_self
  *= require foundation_and_overrides
-
+ *= require artsbostonia
  */
 
-
-body {
-  background-color: #B1A296;
-}
-
-.tile {
-  background-color: #557A95;
-  border: 4px solid #7395AE;
-  color: #333333;
-  margin: 20px;
-  padding: 8px 30px;
-  border-radius: 10px;
-  height: 400px;
-  width: 280px;
-  text-align: center;
-  font-family: helvetica, 'sans serif';
-  font-size: .8em;
-}
-
-.title {
-  color: white;
-  font-weight: bold;
-  font-style: italic;
-  font-size: 1.25em;
-}
-
-
-.photo {
-  margin-top: 3px;
-  margin-bottom: 10px;
-  border: 3px solid white;
-  border-radius: 8px;
-}
-h1 {
-  font-style: italic;
-}
-a {
-  color: #333333;
-}
-a:hover { color: gray; }
-
-.navlink { color: white; }

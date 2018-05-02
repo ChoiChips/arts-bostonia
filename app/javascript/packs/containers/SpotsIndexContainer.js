@@ -89,6 +89,7 @@ class SpotsIndexContainer extends Component {
     } else {
       displayedSpots = this.createSpotTile(this.state.searchResults).slice(0, this.state.count)
     }
+    // debugger;
 
     return (
       <div>

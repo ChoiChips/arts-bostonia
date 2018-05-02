@@ -15,13 +15,10 @@
 
   <nav class="top-bar">
     <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">ArtsBostonia</a></h1>
-      </li>
     </ul>
 
     <section class="top-bar-section">
-      <div><%=link_to 'Add New Spot', new_spot_path, :class => "navlink"%></div>
+      <%= link_to 'ArtsBostonia', new_spot_path, :class => "navlink" %>
       <ul class="right">
         <%- if current_user -%>
           <li><%= link_to '+ Add New Spot', new_spot_path, :class => "test" %></li>

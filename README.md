@@ -15,6 +15,7 @@ To set up on local machine:
 2. Run ```bundle exec install``` then ```npm install```
 3. Run ```rake db:create``` then ```rake db:migrate``` then ```rake db:seed```
 4. Run ```rails s``` in one tab and ```npm start``` in another tab
+5. Visit ```localhost:3000```
 
 For testing:
 1. Run ```rake db:test:prepare``` then ```rspec```

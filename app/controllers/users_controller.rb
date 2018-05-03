@@ -7,8 +7,16 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+
     if @user != current_user
+
+      if @user.spots
+        spots = @user.spots
+        current_user.spots = spots
+      end
+
       @user.destroy
+
     else
       flash[:notice] = "Admins can't delete own account"
     end

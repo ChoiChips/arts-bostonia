@@ -20,61 +20,53 @@
     gtag('config', 'UA-118597490-1');
   </script>
 </head>
-<body>
-
-  <nav class="top-bar">
-    <ul class="title-area">
-    </ul>
-
-    <section class="top-bar-section">
-      <%= link_to 'ArtsBostonia', root_path, :class => "navlink" %>
-      <ul class="right">
-        <% if current_user %>
-          <% if current_user.admin %>
-          <li><%= link_to 'Admin', users_path, :class => "test" %></li>
-          <% end %>
-          <li><%= link_to '+ Add New Spot', new_spot_path, :class => "test" %></li>
-          <li><%= link_to 'My Activity' %></li>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-
-          <li><%= link_to edit_user_registration_path do %></li>
-            <% if current_user.avatar.path == nil %>
-              <%= 'Profile' %>
-            <% else %>
-            <img src="<%= current_user.avatar %>" class="profile-avatar image--rounded">
-            <% end %>
-          <% end %>
-
-
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-
-
-        <%- end -%>
+  <body>
+    <nav class="top-bar" role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h3><%= link_to 'ArtsBostonia', root_path, :class => "test" %></h3>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
-    </section>
-  </nav>
+      <section class="top-bar-section">
+        <ul class="right">
+          <% if current_user %>
+            <% if current_user.admin %>
+            <li><%= link_to 'Admin', users_path, :class => "test" %></li>
+            <% end %>
+            <li><%= link_to '+ Add New Spot', new_spot_path, :class => "test" %></li>
+            <li><%= link_to 'My Activity' %></li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+              <% if current_user.avatar.path == nil %>
+                <li><%= link_to 'Profile', edit_user_registration_path, :class => "test" %></li>
+              <% else %>
+                <img src="<%= current_user.avatar %>" class="profile-avatar image--rounded">
+              <% end %>
+          <%- else -%>
+            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <%- end -%>
+        </ul>
+      </section>
+    </nav>
+  <% if !flash.empty? %>
+    <div class="row">
+      <div class="columns medium-8">
+        <div class="panel callout text-center">
 
-<% if !flash.empty? %>
-  <div class="row">
-    <div class="columns medium-8">
-      <div class="panel callout text-center">
+          <%- flash.each do |key, value| -%>
+            <div class="flash flash-<%= key %>">
+              <%= value %>
+            </div>
+          <%- end -%>
 
-        <%- flash.each do |key, value| -%>
-          <div class="flash flash-<%= key %>">
-            <%= value %>
           </div>
-        <%- end -%>
-
+        </div>
       </div>
-    </div>
-  </div>
-<% end %>
-
-  <%= yield %>
-
-  <%= javascript_include_tag 'application' %>
-  <%= yield :extra_footer %>
-</body>
+    <% end %>
+    </li>
+    <%= yield %>
+    <%= javascript_include_tag 'application' %>
+    <%= yield :extra_footer %>
+  </body>
 </html>

@@ -33,7 +33,7 @@ https://artsbostonia.herokuapp.com
 
 ## Collaborators:
 
-* **Christian**
+* **Christian C.**
 (https://github.com/ChoiChips)
 * **Evan H.**
 (https://github.com/AppDevEvan)

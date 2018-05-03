@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const SpotTile = (props) => {
 
-  let photo = props.photo || ''
+  let photo = props.photo.url || ''
   let name = props.name.toUpperCase()
 
   return (

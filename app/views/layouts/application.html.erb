@@ -10,25 +10,31 @@
     <%= javascript_pack_tag 'application'%>
 
   <%= csrf_meta_tags %>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118597490-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-118597490-1');
+  </script>
 </head>
 <body>
 
   <nav class="top-bar">
     <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">ArtsBostonia</a></h1>
-      </li>
     </ul>
 
     <section class="top-bar-section">
-      <div><%=link_to 'Add New Spot', new_spot_path, :class => "navlink"%></div>
+      <%= link_to 'ArtsBostonia', root_path, :class => "navlink" %>
       <ul class="right">
         <% if current_user %>
           <% if current_user.admin %>
           <li><%= link_to 'Admin', users_path, :class => "test" %></li>
           <% end %>
           <li><%= link_to '+ Add New Spot', new_spot_path, :class => "test" %></li>
-          <li><%= link_to 'Activity' %></li>
+          <li><%= link_to 'My Activity' %></li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
 
           <li><%= link_to edit_user_registration_path do %></li>
@@ -40,12 +46,12 @@
           <% end %>
 
 
-        <%-else %>
+        <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li><%= link_to 'Sign In', new_user_session_path %></li>
 
 
-        <% end %>
+        <%- end -%>
       </ul>
     </section>
   </nav>

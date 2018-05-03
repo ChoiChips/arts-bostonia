@@ -1,13 +1,6 @@
 @import 'variables';
 
 .spot-container {
-  a {
-    &:hover {
-      color: gray;
-    }
-    color: black;
-  }
-
   .spot-tile {
     display: block;
     margin: 0 auto 25px auto;
@@ -15,30 +8,19 @@
     max-width: 385px;
     background: rgba($color-primary,.2);
     font-family: helvetica, 'sans serif';
-    overflow: hidden;
+    color: $black;
     .name {
-      // font-family: 'Raleway', sans-serif;
-      // font-family: 'Raleway', sans-serif;
       font-family: 'Oswald', sans-serif;
       text-align: center;
       color: $color-tertiary;
-      // font-family: 'PT Sans', sans-serif;
-      // font-family: 'Ubuntu', sans-serif;
-      // font-family: 'Noto Serif', serif;
     }
     .content {
       padding: 15px;
     }
-    .photo-parent {
+    .photo {
       height: 180px;
-      // overflow: hidden;
       background-size: cover;
       background-repeat: no-repeat;
-      .photo {
-        // width: 100%;
-
-
-      }
     }
     &:hover {
       background: rgba($color-primary,.3);

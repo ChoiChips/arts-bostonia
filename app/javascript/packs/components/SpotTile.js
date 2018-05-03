@@ -15,7 +15,7 @@ const SpotTile = (props) => {
   return (
     <div className="columns small-12 medium-6 large-4 end">
       <Link className="spot-tile" to={`/spots/${props.id}`}>
-         <div className="photo-parent" style={{ backgroundImage: `url(${photo})` }}></div>
+         <div className="photo" style={{ backgroundImage: `url(${photo})` }}></div>
 
           <div className="content">
            <h4 className="name"> {name}</h4>
@@ -30,6 +30,3 @@ const SpotTile = (props) => {
 
 
 export default SpotTile;
-
-//style={{marginRight: spacing + 'em'}}
-//<img className="photo" src={`${photo}`}/>

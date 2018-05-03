@@ -3,10 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :avatar, AvatarUploader
 
-  def member?
-    role == "member"
-  end
   def admin?
-    role == "admin"
+    admin == true
   end
 end

@@ -22,7 +22,7 @@ const ReviewsShowContainer = (props) => {
 
   return(
     <div>
-      <h1>Reviews!</h1>
+      <h2 class="reviews-header">Reviews</h2>
       <div>
         {reviews}
       </div>

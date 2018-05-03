@@ -93,27 +93,36 @@ class ReviewFormContainer extends Component {
       errorDiv = <div className="callout alert">{errorItems}</div>
     }
     return (
-      <form className="callout" onSubmit={this.handleFormSubmit}>
+      <div>
+
+       <h4>Add a new review!</h4>
         {errorDiv}
-        Add a new review!
-        <RatingSelect
-          handlerFunction={this.handleRatingChange}
-          name='ratingSelected'
-          label='Rating'
-          options={this.state.ratingOptions}
-          selectedOption={this.state.ratingSelected}
-        />
-        <DescriptionText
-          handlerFunction={this.handleDescriptionChange}
-          name='description'
-          label='Description'
-          content={this.state.description}
-        />
-        <div className="button-group">
-          <input className="button" type="submit" value="Submit" />&nbsp;
-          <button className="button" onClick={this.handleClearForm}>Clear</button>
-        </div>
-      </form>
+
+        <div className="row">
+          <div className="columns medium-6">
+            <form className="callout" onSubmit={this.handleFormSubmit}>
+                <RatingSelect
+                  handlerFunction={this.handleRatingChange}
+                  name='ratingSelected'
+                  label='Rating'
+                  options={this.state.ratingOptions}
+                  selectedOption={this.state.ratingSelected}
+                />
+                <DescriptionText
+                  handlerFunction={this.handleDescriptionChange}
+                  name='description'
+                  label='Description'
+                  content={this.state.description}
+                />
+                <div className="button-group">
+                  <input className="button" type="submit" value="Submit" />&nbsp;
+                  <button className="button" onClick={this.handleClearForm}>Clear</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+      </div>
     );
   }
 }

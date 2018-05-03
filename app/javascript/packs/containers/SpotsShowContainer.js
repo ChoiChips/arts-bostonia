@@ -69,9 +69,8 @@ class SpotsShowContainer extends Component {
 
   render() {
     return(
-      <div className="spot-container">
-        <div className="row">
-          <div>
+      <div className="row">
+        <div className="columns medium-11 medium-centered">
             <SpotShow
               key={this.state.spot.id}
               id={this.state.spot.id}
@@ -81,23 +80,19 @@ class SpotsShowContainer extends Component {
               location={this.state.spot.location}
               photo={this.state.spot.photo}
             />
-          </div>
           <div>
-            <h1 className="show column large-6 medium-12 small-12">Dummy area for Google Maps</h1>
-          </div>
-        </div>
-        <div>
           <ReviewsShowContainer
             key={this.state.spot.id}
             id={this.state.spot.id}
             reviews={this.state.reviews}
           />
-        </div>
-        <div>
+          </div>
+          <div>
           <ReviewFormContainer
             addNewReview={this.addNewReview}
             spot={this.props.params}
           />
+          </div>
         </div>
       </div>
     )

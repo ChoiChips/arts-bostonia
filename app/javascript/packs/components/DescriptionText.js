@@ -2,14 +2,16 @@ import React from 'react';
 
 const DescriptionText = (props) => {
   return (
-    <label>{props.label}
-      <textarea
-        name={props.name}
-        type='text'
-        value={props.content}
-        onChange={props.handlerFunction}
-      />
-    </label>
+    <div className="field">
+      <label className="label">{props.label}</label>
+        <textarea
+          name={props.name}
+          type='text'
+          value={props.content}
+          onChange={props.handlerFunction}
+          size="30"
+        />
+    </div>
   );
 }
 

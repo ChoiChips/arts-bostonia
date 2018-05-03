@@ -62,48 +62,6 @@
     <% end %>
 
 
-    <hr>
-
-      <h2>Manage Reviews</h2>
-        <div class="row">
-          <div class="columns small-1 text-center">
-            <h4>ID</h4>
-          </div>
-
-          <div class="columns small-4">
-            <h4>Spot</h4>
-          </div>
-
-          <div class="columns small-3">
-            <h4>Description</h4>
-          </div>
-
-          <div class="columns small-4 text-center">
-            <h4>Delete Review</h4>
-          </div>
-        </div>
-
-        <% @reviews.each do |review| %>
-          <div class="row">
-            <div class="columns small-1 text-center">
-              <%= review.id %>
-            </div>
-
-            <div class="columns small-4">
-              <%= link_to "#{review.spot.name}", review.spot %>
-            </div>
-
-            <div class="columns small-3">
-              <%= review.description %>
-            </div>
-
-            <div class="columns small-4 text-center">
-              <%= link_to 'Delete', review, method: :delete, class: "button tiny alert spot-#{review.id}" %>
-            </div>
-          </div>
-        <% end %>
-
-        <br/>
 
   </div>
 </div>

@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @spots = Spot.all.order(:id)
-    @reviews = Review.all.order(:id)
   end
 
   def destroy

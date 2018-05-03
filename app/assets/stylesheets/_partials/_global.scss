@@ -1,5 +1,7 @@
+@import 'variables';
+
 body {
-  background-color: #B1A296;
+  background-color: $color-body-background;
 }
 
 .top-bar {

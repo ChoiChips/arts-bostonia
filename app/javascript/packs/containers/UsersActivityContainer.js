@@ -8,7 +8,10 @@ class UsersActivityContainer extends Component {
   }
 
   componentDidMount(){
-    fetch('/api/v1/spots.json')
+
+    fetch('/api/v1/users', {
+      credentials: 'same-origin'
+    })
       .then(response => {
         if (response.ok) {
           return response;
@@ -43,7 +46,8 @@ class UsersActivityContainer extends Component {
 
     return (
       <div className="row spot-container">
-        we are here
+        <h1>Your Recent Activity</h1>
+        {spots}
       </div>
     );
   }

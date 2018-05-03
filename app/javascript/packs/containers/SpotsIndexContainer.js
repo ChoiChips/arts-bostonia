@@ -90,6 +90,15 @@ class SpotsIndexContainer extends Component {
       displayedSpots = this.createSpotTile(this.state.searchResults).slice(0, this.state.count)
     }
 
+    let showMoreButton;
+    if (this.state.spots != []) {
+      if (displayedSpots.length === this.state.spots.length || displayedSpots.length === this.state.searchResults.length) {
+        showMoreButton = <div></div>
+      } else {
+        showMoreButton = <button id="show-more-button" onClick={this.showMoreResults}>Show More</button>
+      }
+    }
+
     return (
       <div>
         <div>
@@ -100,8 +109,8 @@ class SpotsIndexContainer extends Component {
         <div className="row spot-container">
           {displayedSpots}
         </div>
-        <div>
-          <button onClick={this.showMoreResults}>Show More</button>
+        <div className="text-center">
+          {showMoreButton}
         </div>
       </div>
     );

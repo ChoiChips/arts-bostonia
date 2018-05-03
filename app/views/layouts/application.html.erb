@@ -10,65 +10,82 @@
     <%= javascript_pack_tag 'application'%>
 
   <%= csrf_meta_tags %>
-</head>
-<body>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118597490-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">ArtsBostonia</a></h1>
+    gtag('config', 'UA-118597490-1');
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Oswald|PT+Sans|Raleway|Ubuntu" rel="stylesheet">
+</head>
+  <body>
+
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to 'ArtsBostonia', root_path, :class => "header-logo" %></h1>
+    </li>
+
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+
+    <ul class="right">
+
+    <% if user_signed_in? %>
+
+      <li><%= link_to '+ Add New Spot', new_spot_path %></li>
+
+      <% if current_user.admin? %>
+        <li><%= link_to 'Manage Users', users_path %></li>
+      <% else %>
+        <li><%= link_to 'My Activity', "/users/activity" %></li>
+      <% end %>
+
+      <li>
+        <% if current_user.avatar.path.nil? %>
+          <%= link_to 'Profile', edit_user_registration_path %>
+        <% else %>
+          <img src="<%= current_user.avatar %>" class="profile-avatar image--rounded">
+        <% end %>
       </li>
+
+      <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+
+    <% else %>
+
+      <li class="active"><%= link_to 'Sign Up', new_user_registration_path %></li>
+      <li><%= link_to 'Log in', new_user_session_path %></li>
+
+    <% end %>
+
     </ul>
 
-    <section class="top-bar-section">
-      <div><%=link_to 'Add New Spot', new_spot_path, :class => "navlink"%></div>
-      <ul class="right">
-        <% if current_user %>
-          <% if current_user.admin %>
-          <li><%= link_to 'Admin', users_path, :class => "test" %></li>
-          <% end %>
-          <li><%= link_to '+ Add New Spot', new_spot_path, :class => "test" %></li>
-          <li><%= link_to 'Activity' %></li>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+  </section>
+</nav>
 
-          <li><%= link_to edit_user_registration_path do %></li>
-            <% if current_user.avatar.path == nil %>
-              <%= 'Profile' %>
-            <% else %>
-            <img src="<%= current_user.avatar %>" class="profile-avatar image--rounded">
-            <% end %>
-          <% end %>
+  <% if !flash.empty? %>
+    <div class="row">
+      <div class="columns medium-8">
+        <div class="panel callout text-center">
 
+          <%- flash.each do |key, value| -%>
+            <div class="flash flash-<%= key %>">
+              <%= value %>
+            </div>
+          <%- end -%>
 
-        <%-else %>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-
-
-        <% end %>
-      </ul>
-    </section>
-  </nav>
-
-<% if !flash.empty? %>
-  <div class="row">
-    <div class="columns medium-8">
-      <div class="panel callout text-center">
-
-        <%- flash.each do |key, value| -%>
-          <div class="flash flash-<%= key %>">
-            <%= value %>
           </div>
-        <%- end -%>
-
+        </div>
       </div>
-    </div>
-  </div>
-<% end %>
-
-  <%= yield %>
-
-  <%= javascript_include_tag 'application' %>
-  <%= yield :extra_footer %>
-</body>
+    <% end %>
+    </li>
+    <%= yield %>
+    <%= javascript_include_tag 'application' %>
+    <%= yield :extra_footer %>
+  </body>
 </html>

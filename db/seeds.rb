@@ -2,15 +2,14 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 
-# Deletes old data from database
 User.destroy_all
 Spot.destroy_all
 Review.destroy_all
 
-user_1 = User.create!(role: 'member', :email => 'nick@gmail.com', password: 'topsecret', password_confirmation: 'topsecret')
-user_2 = User.create!(role: 'member', :email => 'brianna@gmail.com', password: 'topsecret', password_confirmation: 'topsecret')
-user_3 = User.create!(role: 'member', :email => 'amylynn@gmail.com', password: 'topsecret', password_confirmation: 'topsecret')
-admin = User.create!(role: 'admin', :email => 'ateam@gmail.com', password: 'topsecret', password_confirmation: 'topsecret')
+user_1 = User.create!(:email => 'nick@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+user_2 = User.create!(:email => 'brianna@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+user_3 = User.create!(:email => 'amylynn@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret')
+admin = User.create!(:email => 'ateam@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret', admin: true)
 
 spots = [
   { name: 'All Saints Way',location:'4 Battery Street, Boston, Massachusetts, 02109', description: '"Mock all and sundry things, but leave the saints alone." While the shrine is a personal project on private property, Baldassari has been known to give quick tours, and a good portion of the collection is visible from the street, even if the gate is locked. ', remote_photo_url: 'https://s3.amazonaws.com/arts-bostonia/arts-bostonia-production/allsaints.jpeg', user: user_1 },
@@ -30,6 +29,7 @@ This triple headstone can be found near the center of the cemetery, and serves a
 spots.each do |item|
   spot = Spot.create!(item)
 end
+
 user_1 = User.last
 spot_1 = Spot.last
 

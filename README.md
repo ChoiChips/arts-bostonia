@@ -4,7 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/ChoiChips/arts-bostonia/badges/gpa.svg)](https://codeclimate.com/github/ChoiChips/arts-bostonia)
 [![Coverage Status](https://coveralls.io/repos/github/ChoiChips/arts-bostonia/badge.svg?branch=master)](https://coveralls.io/github/ChoiChips/arts-bostonia?branch=master)
 
-# Description:
+## Description:
 
 Thank you for using Arts Bostonia! Developed in 2018 as a skills demonstration platform we hope to enable users to discover interesting and obscure pieces of public art, graffiti, sculptures, and other obscura around the greater Boston area.  Our site was built with Rails backend, React frontend, Foundation styling, and a focus on TDD with RSpec and Jasmine.
 

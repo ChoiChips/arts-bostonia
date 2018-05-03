@@ -18,9 +18,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :spots, only: [:index, :show, :create, :new, :edit, :update]
-
+  resources :spots, only: [:index, :show, :create, :new, :edit, :update, :destroy]
   resources :users, only: [:index, :destroy]
+  resources :reviews, only: [:destroy]
 
   get "*path", to: 'spots#index'
 end

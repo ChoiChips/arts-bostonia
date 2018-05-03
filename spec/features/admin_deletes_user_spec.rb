@@ -4,7 +4,7 @@ feature 'admin deletes user' do
   before(:each) do
     @user = User.create!(role: 'user', email: 'testo@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', admin: false)
     @admin = User.create!(role: 'admin', email: 'admin@gmail.com', password: 'topsecret', password_confirmation: 'topsecret', admin: true)
-
+    @spot = Spot.create!(name: 'Some beautiful spot',location:'Boston, MA',description:'Lorem ipsum dolum sit amet',user:@user)
 
     visit new_user_session_path
     fill_in 'Email', with: @admin.email
@@ -27,4 +27,5 @@ feature 'admin deletes user' do
     expect(page).to have_content("admin@gmail.com")
     expect(page).to have_content("Admins can't delete own account")
   end
+
 end

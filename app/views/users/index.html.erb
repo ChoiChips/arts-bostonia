@@ -11,7 +11,7 @@
         <h4>Last Logged In</h4>
       </div>
 
-      <div class="columns small-4">
+      <div class="columns small-4 text-center">
         <h4>Delete User</h4>
       </div>
     </div>
@@ -24,11 +24,43 @@
         <div class="columns small-4">
           <%= user.last_sign_in_at %>
         </div>
-        <div class="columns small-4">
+        <div class="columns small-4 text-center">
           <%= link_to 'Delete', user, method: :delete, class: "button tiny alert user-#{user.id}" %>
         </div>
       </div>
     <% end %>
+
+<hr>
+
+  <h2>Manage Spots</h2>
+    <div class="row">
+      <div class="columns small-1 text-center">
+        <h4>ID</h4>
+      </div>
+
+      <div class="columns small-4">
+        <h4>Name</h4>
+      </div>
+
+      <div class="columns small-4 text-center">
+        <h4>Delete Spot</h4>
+      </div>
+    </div>
+
+    <% @spots.each do |spot| %>
+      <div class="row">
+        <div class="columns small-1 text-center">
+          <%= spot.id %>
+        </div>
+        <div class="columns small-4">
+          <%= link_to "#{spot.name}", spot %>
+        </div>
+        <div class="columns small-4 text-center">
+          <%= link_to 'Delete', spot, method: :delete, class: "button tiny alert spot-#{spot.id}" %>
+        </div>
+      </div>
+    <% end %>
+
 
 
   </div>

@@ -1,6 +1,7 @@
 class SpotsController < ApplicationController
 
   before_action :authorize_user, except: [:index,:show]
+  before_action :authorize_admin, only: [:destroy]
 
   def index
   end
@@ -44,6 +45,14 @@ class SpotsController < ApplicationController
 
   end
 
+  def destroy
+    spot = Spot.find(params[:id])
+    reviews = spot.reviews
+    spot.destroy
+    reviews.destroy_all
+    redirect_to users_path
+  end
+
   protected
   def spot_params
     params.require(:spot).permit(:name, :location, :photo, :artist, :description)
@@ -51,6 +60,14 @@ class SpotsController < ApplicationController
 
   def authorize_user
     if !user_signed_in?
+      flash[:notice] = "You do not have access to this page."
+      redirect_to root_path
+    end
+  end
+
+  def authorize_admin
+    if !user_signed_in? || !current_user.admin?
+      flash[:notice] = "You do not have access to this page."
       redirect_to root_path
     end
   end

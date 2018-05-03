@@ -1,7 +1,30 @@
 @import 'variables';
 
 .user-page {
-  .page-header {
-    color: $white;
+
+  .admin-tabs.tabs {
+    .tab-title {
+      &.active {
+        > a {
+          background: #1b54be;
+          // border-bottom: solid 4px $black;
+          color: $white;
+          font-weight: 700;
+        }
+
+      }
+    }
   }
+  .admin-tabs-content {
+    padding: 10px;
+    background: rgba($white,.2);
+    .content-type-header {
+      border-bottom: solid 1px #b1a296;
+      margin-bottom: 25px;
+    }
+    .content {
+      padding: 0;
+    }
+  }
+
 }

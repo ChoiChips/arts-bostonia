@@ -16,7 +16,11 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
         expect(response.status).to eq 200
         expect(response.content_type).to eq("application/json")
 
+<<<<<<< HEAD
         expect(returned_json.first.keys).to eq ["id", "name", "photo", "artist", "location", "description"]
+=======
+        expect(returned_json.first.keys).to eq ["id", "name", "photo", "artist", "description", "location"]
+>>>>>>> master
         expect(returned_json.first["id"]).to eq(test_review.id)
       end
 

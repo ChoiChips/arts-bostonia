@@ -1,34 +1,125 @@
 <div class="row user-page">
-  <div class="columns medium-10">
-    <h1>All Users</h1>
+  <div class="columns medium-11">
 
-    <div class="row">
-      <div class="columns small-4">
-        <h4>Email</h4>
-      </div>
+    <h1>Manage Users and Content</h1>
 
-      <div class="columns small-4">
-        <h4>Last Logged In</h4>
-      </div>
+    <ul class="tabs admin-tabs" data-tab>
+      <li class="tab-title active"><a href="#users">Users</a></li>
+      <li class="tab-title"><a href="#spots">Spots</a></li>
+      <li class="tab-title"><a href="#reviews">Reviews</a></li>
+    </ul>
 
-      <div class="columns small-4">
-        <h4>Delete User</h4>
-      </div>
+    <div class="tabs-content admin-tabs-content">
+
+      <div class="content active" id="users">
+        <h2 class="content-type-header">Users</h2>
+
+          <div class="row">
+            <div class="columns small-4">
+              <h4>Email</h4>
+            </div>
+
+            <div class="columns small-4">
+              <h4>Last Logged In</h4>
+            </div>
+
+            <div class="columns small-4 text-center">
+              <h4>Delete User</h4>
+            </div>
+          </div>
+
+          <% @users.each do |user| %>
+            <div class="row">
+              <div class="columns small-4">
+                <%= user.email %>
+              </div>
+              <div class="columns small-4">
+                <%= user.last_sign_in_at %>
+              </div>
+              <div class="columns small-4 text-center">
+                <%= link_to 'Delete', user, method: :delete, class: "button tiny alert user-#{user.id}" %>
+              </div>
+            </div>
+          <% end %>
     </div>
 
-    <% @users.each do |user| %>
+    <div class="content" id="spots">
+
+      <h2 class="content-type-header">Spots</h2>
+
       <div class="row">
-        <div class="columns small-4">
-          <%= user.email %>
+        <div class="columns small-1 text-center">
+            <h4>ID</h4>
+          </div>
+
+          <div class="columns small-4">
+            <h4>Name</h4>
+          </div>
+
+          <div class="columns small-4 text-center">
+            <h4>Delete Spot</h4>
+          </div>
         </div>
-        <div class="columns small-4">
-          <%= user.last_sign_in_at %>
+
+        <% @spots.each do |spot| %>
+          <div class="row">
+            <div class="columns small-1 text-center">
+              <%= spot.id %>
+            </div>
+            <div class="columns small-4">
+              <%= link_to "#{spot.name}", spot %>
+            </div>
+            <div class="columns small-4 text-center">
+              <%= link_to 'Delete', spot, method: :delete, class: "button tiny alert spot-#{spot.id}" %>
+            </div>
+          </div>
+        <% end %>
+
+   </div>
+
+    <div class="content" id="reviews">
+      <h2 class="content-type-header">Manage Reviews</h2>
+        <div class="row">
+          <div class="columns small-1 text-center">
+            <h4>ID</h4>
+          </div>
+
+          <div class="columns small-4">
+            <h4>Spot</h4>
+          </div>
+
+          <div class="columns small-3">
+            <h4>Description</h4>
+          </div>
+
+          <div class="columns small-4 text-center">
+            <h4>Delete Review</h4>
+          </div>
         </div>
-        <div class="columns small-4">
-          <%= link_to 'Delete', user, method: :delete, class: "button tiny alert user-#{user.id}" %>
-        </div>
-      </div>
-    <% end %>
+
+        <% @reviews.each do |review| %>
+          <div class="row">
+            <div class="columns small-1 text-center">
+              <%= review.id %>
+            </div>
+
+            <div class="columns small-4">
+              <%= link_to "#{review.spot.name}", review.spot %>
+            </div>
+
+            <div class="columns small-3">
+              <%= review.description %>
+            </div>
+
+            <div class="columns small-4 text-center">
+              <%= link_to 'Delete', review, method: :delete, class: "button tiny alert spot-#{review.id}" %>
+            </div>
+          </div>
+        <% end %>
+
+    </div>
+
+  </div>
 
   </div>
 </div>

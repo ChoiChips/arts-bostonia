@@ -8,12 +8,15 @@ const RatingSelect = (props) => {
   })
 
   return (
-    <label>{props.label}
+    <div className="field">
+      <label className="label">
+        {props.label}
+      </label>
       <select name={props.name} value={props.selectedOption} onChange={props.handlerFunction}>
         <option value=""></option>
         {optionElements}
       </select>
-    </label>
+    </div>
   );
 }
 

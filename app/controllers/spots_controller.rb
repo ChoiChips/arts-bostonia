@@ -16,8 +16,13 @@ class SpotsController < ApplicationController
 
   def create
     @spot = Spot.new(spot_params)
-
     @spot.user = current_user
+
+    maps_api = "https://maps.googleapis.com/maps/api/geocode/json?address="
+    maps_spot_address = @spot.location
+    maps_api_key = "&key=AIzaSyC8GqLhigt0JqlM_KJzx_OWtGYDdXoxgnc"
+    maps_api_call = maps_api + maps_spot_address + maps_api_key
+
     if @spot.save
       flash[:success] = 'Spot added successfully'
       @spot.save

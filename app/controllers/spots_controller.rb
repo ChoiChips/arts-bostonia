@@ -15,8 +15,8 @@ class SpotsController < ApplicationController
 
   def create
     @spot = Spot.new(spot_params)
-
     @spot.user = current_user
+
     if @spot.save
       flash[:success] = 'Spot added successfully'
       @spot.save
@@ -55,7 +55,7 @@ class SpotsController < ApplicationController
 
   protected
   def spot_params
-    params.require(:spot).permit(:name, :location, :photo, :artist, :description)
+    params.require(:spot).permit(:name, :location, :photo, :artist, :description, :location_lat, :location_lng)
   end
 
   def authorize_user

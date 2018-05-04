@@ -41,7 +41,7 @@
       <li><%= link_to '+ Add New Spot', new_spot_path %></li>
 
       <% if current_user.admin? %>
-        <li><%= link_to 'Manage Users', users_path %></li>
+        <li><%= link_to 'Manage Site', users_path %></li>
       <% else %>
         <li><%= link_to 'My Activity', "/users/activity" %></li>
       <% end %>
@@ -50,11 +50,13 @@
         <% if current_user.avatar.path.nil? %>
           <%= link_to 'Profile', edit_user_registration_path %>
         <% else %>
-          <img src="<%= current_user.avatar %>" class="profile-avatar image--rounded">
+          <%= link_to edit_user_registration_path do %>
+            <img src="<%= current_user.avatar %>" class="profile-avatar top-bar image--rounded">
+            <% end %>
         <% end %>
       </li>
 
-      <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+      <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "sign-out" %></li>
 
     <% else %>
 
@@ -87,5 +89,6 @@
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= yield :extra_footer %>
+
   </body>
 </html>

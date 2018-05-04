@@ -7,13 +7,15 @@ const ReviewsShowContainer = (props) => {
   if (props.reviews) {
     reviews = props.reviews.map(review => {
       return(
-        <ReviewTile
-          key={review.id}
-          id={review.id}
-          rating={review.rating}
-          description={review.description}
-          user={review.user_id}
-        />
+        <div>
+          <ReviewTile
+            key={review.id}
+            id={review.id}
+            rating={review.rating}
+            description={review.description}
+            user={review.user_id}
+          />
+        </div>
       )
     })
   } else {
@@ -22,7 +24,7 @@ const ReviewsShowContainer = (props) => {
 
   return(
     <div>
-      <h2 className="reviews-header">Reviews</h2>
+      <h2 className="reviews-header reviews-container-line-break">Reviews</h2>
       <div>
         {reviews}
       </div>

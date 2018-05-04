@@ -74,6 +74,7 @@ class SpotsShowContainer extends Component {
             <SpotShow
               key={this.state.spot.id}
               id={this.state.spot.id}
+              userId={this.state.spot.user_id}
               name={this.state.spot.name}
               artist={this.state.spot.artist}
               description={this.state.spot.description}
@@ -81,17 +82,17 @@ class SpotsShowContainer extends Component {
               photo={this.state.spot.photo}
             />
           <div>
-          <ReviewsShowContainer
-            key={this.state.spot.id}
-            id={this.state.spot.id}
-            reviews={this.state.reviews}
-          />
+            <ReviewsShowContainer
+              key={this.state.spot.id}
+              id={this.state.spot.id}
+              reviews={this.state.reviews}
+            />
           </div>
           <div>
-          <ReviewFormContainer
-            addNewReview={this.addNewReview}
-            spot={this.props.params}
-          />
+            <ReviewFormContainer
+              addNewReview={this.addNewReview}
+              spot={this.props.params}
+            />
           </div>
         </div>
       </div>

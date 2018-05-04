@@ -4,16 +4,11 @@ body {
   background-color: $color-body-background;
 }
 
-
-
 .top-bar-section ul li a {
   background-color: #0BC9CD !important;
   font-size: .9em;
 }
-.arts {
-  color: #7C77B9;
-  font-size: 1em !important;
-}
+
 .top-bar {
   background-color: #0BC9CD;
   h1 {
@@ -42,4 +37,9 @@ body {
   font-weight: 400;
   font-style: normal;
   color: white;
+  padding-left: 10px;
+  .arts {
+    color: #7C77B9;
+    font-size: 1em !important;
+  }
 }

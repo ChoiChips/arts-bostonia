@@ -19,14 +19,15 @@
 
     gtag('config', 'UA-118597490-1');
   </script>
-  <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Oswald|PT+Sans|Raleway|Ubuntu" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:300,400" rel="stylesheet">
 </head>
   <body>
 
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
-      <h1><%= link_to 'ArtsBostonia', root_path, :class => "header-logo" %></h1>
+      <!-- <h1><%= link_to 'ArtsBostonia', root_path, :class => "header-logo" %></h1> -->
+      <a href="#" class="header-logo"><span class="arts">&nbsp;&nbsp;Arts</span>Bostonia </a>
     </li>
 
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -72,8 +73,8 @@
 
   <% if !flash.empty? %>
     <div class="row">
-      <div class="columns medium-8">
-        <div class="panel callout text-center">
+      <div class="columns medium-8 medium-centered">
+        <div class="flash panel callout text-center">
 
           <%- flash.each do |key, value| -%>
             <div class="flash flash-<%= key %>">

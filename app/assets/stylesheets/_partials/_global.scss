@@ -4,6 +4,10 @@ body {
   background-color: $color-body-background;
 }
 
+h1,h2,h3,h4,h5 {
+  font-family: $font-primary;
+}
+
 .top-bar-section ul li a {
   background-color: #0BC9CD !important;
   font-size: .9em;
@@ -27,7 +31,7 @@ body {
   text-shadow: 1px 1px $white;
   margin: 0 0 15px;
   font-family: $font-primary;
-
+}
 .flash.panel.callout {
   background-color: $color-secondary;
   color: white;

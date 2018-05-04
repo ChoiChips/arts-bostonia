@@ -1,0 +1,121 @@
+
+<div class="row column">
+  <h1>Spots Map</h1>
+</div>
+
+<style>
+  #spots-map {
+    width: 100%;
+    height: 500px;
+  }
+</style>
+
+<div id="spots-map"></div>
+
+<script>
+let map, infowindow;
+
+let model = {
+  spots: [
+    {
+      name: "Spot 1",
+      position: {lat: parseFloat('42.2027289'), lng: parseFloat('-71.506626')},
+      location: "123 fruit st"
+    },
+    {
+      name: "Spot 2",
+      position: {lat: parseFloat('42.3539609'), lng: parseFloat('-71.0589231')},
+      location: "somewhere"
+    },
+  ],
+  spotsApi: []
+}
+
+let control = {
+  // Initiate Views
+  init: function(){
+    control.fetchSpots();
+    //initMap();
+  },
+  fetchSpots: function(){
+
+    fetch('/api/v1/spots.json')
+      .then(response => {
+        if (response.ok) {;
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+              error = new Error(errorMessage);
+          throw(error);
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        // debugger;
+        model["spotsApi"] = data
+        initMap();
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
+
+  },
+  initInfoWindow: function(){
+    let spots = model.spots,
+        windowContent = '',
+        directionsLink = 'https://www.google.com/maps/dir/Current+Location/';
+
+        infowindow = new google.maps.InfoWindow();
+
+    spots.forEach(function(spot){
+
+        let marker = spot.marker,
+            lat = spot.position.lat,
+            lng = spot.position.lng,
+            position = lat + ',' + lng,
+            name = spot.name;
+
+        marker.addListener('click',function(){
+            windowContent = "<div id='map-infowindow'><h5>"+name+"</h5>"+
+            "<a href='"+directionsLink + position +"' target='_blank'>Directions</a>"+
+            "</div>";
+            setInfoWindowContent(this);
+        })
+
+    });
+
+    function setInfoWindowContent(input){
+        infowindow.setContent(windowContent);
+        infowindow.open(map,input);
+    }
+  }
+}
+
+function initMap(){
+
+  let mapOptions = {mapTypeControl: false},
+      mapBounds = new google.maps.LatLngBounds(),
+      spots = model.spots;
+
+      map = new google.maps.Map(document.getElementById('spots-map'), mapOptions);
+
+  spots.map(function(el,i){
+      let marker = new google.maps.Marker({
+          map: map,
+          position: el.position,
+          animation: google.maps.Animation.DROP,
+          icon: 'https://www.google.com/mapfiles/marker.png'
+      });
+      el.marker = marker;
+      mapBounds.extend(el.position);
+  });
+  control.initInfoWindow();
+  map.fitBounds(mapBounds);
+
+}
+
+control.init();
+
+</script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASya2rxJ2koyx9Btw--HV9_qLA2zYS9G8"
+    async defer></script>

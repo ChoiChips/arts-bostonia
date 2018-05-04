@@ -1,6 +1,6 @@
 class SpotShowSerializer < ActiveModel::Serializer
 
-  attributes :id, :name, :location, :description, :photo, :artist, :user_reviews
+  attributes :id, :name, :location, :description, :photo, :artist, :user_reviews, :location_lat, :location_lng
 
   has_many :reviews
 

@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :destroy]
   resources :reviews, only: [:destroy]
 
+  get "map", to: 'maps#index'
   get "*path", to: 'spots#index'
 end

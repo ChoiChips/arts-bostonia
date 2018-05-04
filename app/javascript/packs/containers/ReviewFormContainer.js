@@ -94,10 +94,8 @@ class ReviewFormContainer extends Component {
     }
     return (
       <div>
-
-       <h4>Add a new review!</h4>
         {errorDiv}
-
+        <h4>Add a new review!</h4>
         <div className="row">
           <div className="columns medium-6">
             <form className="callout" onSubmit={this.handleFormSubmit}>

@@ -41,7 +41,7 @@
       <li><%= link_to '+ Add New Spot', new_spot_path %></li>
 
       <% if current_user.admin? %>
-        <li><%= link_to 'Manage Users', users_path %></li>
+        <li><%= link_to 'Manage Site', users_path %></li>
       <% else %>
         <li><%= link_to 'My Activity', "/users/activity" %></li>
       <% end %>

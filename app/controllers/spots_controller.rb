@@ -1,4 +1,5 @@
-require 'net/http'
+require 'open-uri'
+require 'json'
 
 class SpotsController < ApplicationController
 
@@ -19,10 +20,13 @@ class SpotsController < ApplicationController
     @spot = Spot.new(spot_params)
     @spot.user = current_user
 
-    maps_api = "https://maps.googleapis.com/maps/api/geocode/json?address="
-    maps_spot_address = @spot.location
-    maps_api_key = "&key=AIzaSyC8GqLhigt0JqlM_KJzx_OWtGYDdXoxgnc"
-    maps_api_call = maps_api + maps_spot_address + maps_api_key
+    # maps_api = "https://maps.googleapis.com/maps/api/geocode/json?address="
+    # maps_key = "&key=AIzaSyDdoQwbpjX0qKeTQ5prao4PBCHRp2z7K0g"
+    # maps_spot_address = @spot.location
+    # maps_api_call = maps_api + maps_spot_address + maps_key
+    # response = JSON.parse(open(maps_api_call).read)
+
+    binding.pry
 
     if @spot.save
       flash[:success] = 'Spot added successfully'
@@ -62,7 +66,7 @@ class SpotsController < ApplicationController
 
   protected
   def spot_params
-    params.require(:spot).permit(:name, :location, :photo, :artist, :description)
+    params.require(:spot).permit(:name, :location, :photo, :artist, :description, :location_lat, :location_lng)
   end
 
   def authorize_user

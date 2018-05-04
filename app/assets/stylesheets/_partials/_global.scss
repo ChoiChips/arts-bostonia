@@ -8,4 +8,10 @@ body {
   h1 {
     font-style: italic;
   }
+  img {
+    height: 42px;
+  }
+  .sign-out {
+    background-color: $color-body-background;
+  }
 }

@@ -113,8 +113,8 @@ class ReviewFormContainer extends Component {
                   content={this.state.description}
                 />
                 <div className="button-group">
-                  <input className="button" type="submit" value="Submit" />&nbsp;
-                  <button className="button" onClick={this.handleClearForm}>Clear</button>
+                  <input className="button small" type="submit" value="Submit" />&nbsp;
+                  <button className="button clear small" onClick={this.handleClearForm}>Clear</button>
                 </div>
               </form>
             </div>

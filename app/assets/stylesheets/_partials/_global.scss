@@ -45,6 +45,13 @@ p {
     background-color: $color-body-background;
   }
 }
+
+.site-mission {
+  color: $color-secondary;
+  text-shadow: 1px 1px $white;
+  margin: 0 0 15px;
+  font-family: $font-primary;
+}
 .flash.panel.callout {
   background-color: $color-secondary;
   color: white;
@@ -61,4 +68,9 @@ p {
   font-weight: 400;
   font-style: normal;
   color: white;
+  padding-left: 10px;
+  .arts {
+    color: #7C77B9;
+    font-size: 1em !important;
+  }
 }

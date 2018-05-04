@@ -1,0 +1,10 @@
+.button {
+  font-family: $font-primary;
+  background: $color-primary;
+  color: $black;
+  font-weight: 400;
+  &.clear {
+    color: rgba($black,.70);
+    background: rgba($color-primary,.50);
+  }
+}

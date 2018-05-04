@@ -106,6 +106,16 @@ class SpotsIndexContainer extends Component {
             updateSearchResults={this.updateSearchResults}
           />
         </div>
+        <div className="row text-center">
+          <div className="column">
+            <h1 className="site-mission">Find and Review Boston's Public Art Spots</h1>
+            <div className="home-static-map">
+              <a href="/map" className="map-link">
+                <img src="https://arts-bostonia.s3.amazonaws.com/arts-bostonia-production/map-artsbostonia.png" className="map-image" alt="ArtsBostonia spots map"/>
+              </a>
+            </div>
+          </div>
+        </div>
         <div className="row spot-container">
           {displayedSpots}
         </div>
@@ -118,3 +128,6 @@ class SpotsIndexContainer extends Component {
 }
 
 export default SpotsIndexContainer;
+
+// <img src="https://arts-bostonia.s3.amazonaws.com/arts-bostonia-production/map-artsbostonia.png" className="home-static-map" />
+

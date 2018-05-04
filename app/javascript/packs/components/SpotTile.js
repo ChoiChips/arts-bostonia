@@ -6,8 +6,8 @@ const SpotTile = (props) => {
   let photo = props.photo.url || ''
   let name = props.name.toUpperCase()
   let description = ''
-  if (props.description.length > 100) {
-    description = `${props.description.substring(0, 100)}...`
+  if (props.description.length > 137) {
+    description = `${props.description.substring(0, 137)}...`
   } else {
     description = props.description
   }

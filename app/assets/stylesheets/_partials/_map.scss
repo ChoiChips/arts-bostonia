@@ -1,4 +1,34 @@
+$map-breakpoint: 800px;
+$map-breakpoint-min: 400px;
+
+.map-header {
+  font-family: $font-primary;
+  color: $color-secondary;
+  font-size: 2rem;
+  margin: 15px 0;
+}
+
 #spots-map {
     width: 100%;
     height: 500px;
+}
+
+.home-static-map {
+  margin-bottom: 25px;
+  border: solid 2px #ddd;
+  @media screen and (max-width: $map-breakpoint) {
+    background-image: url('https://arts-bostonia.s3.amazonaws.com/arts-bostonia-production/map-mobile.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 25px auto;
+    height: 200px;
+  }
+  .map-link {
+    width: 100%;
+
+    display: block;
+    @media screen and (max-width: $map-breakpoint) {
+      display: none;
+    }
+  }
 }

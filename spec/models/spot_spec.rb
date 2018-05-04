@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Spot do
-  test_user = User.create!(email: "test@gmail.com", password: "password", password_confirmation: "password")
+  test_user = User.new(email: "test@gmail.com", password: "password", password_confirmation: "password")
   test_spot = Spot.new(name: "Test name", location:"Test location", description: "Test description", photo: "Test photo", user: test_user)
 
   it "is valid with valid attributes" do

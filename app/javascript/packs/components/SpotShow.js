@@ -10,7 +10,7 @@ const SpotShow = (props) => {
   let artist;
 
   if (props.artist === "" || props.artist === null || props.artist === undefined){
-    artist = "Unknown"
+    artist = "Uncredited"
   } else {
     artist = props.artist
   }
@@ -33,7 +33,7 @@ const SpotShow = (props) => {
           </a>
           <p>{props.location} - <a href={`https://www.google.com/maps/dir//${props.location}/`} target="_blank">Directions</a></p>
           <h4>Artist</h4>
-          <p>{props.artist}</p>
+          <p>{artist}</p>
         </div>
         <div className="columns medium-6 text-right small-text-right">
           <img src={url} />

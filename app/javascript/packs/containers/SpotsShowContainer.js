@@ -65,9 +65,11 @@ class SpotsShowContainer extends Component {
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`))
+
   }
 
   render() {
+
     return(
       <div className="row">
         <div className="columns medium-11 medium-centered">
@@ -78,6 +80,8 @@ class SpotsShowContainer extends Component {
               artist={this.state.spot.artist}
               description={this.state.spot.description}
               location={this.state.spot.location}
+              lat={this.state.spot.location_lat}
+              lng={this.state.spot.location_lng}
               photo={this.state.spot.photo}
             />
           <div>

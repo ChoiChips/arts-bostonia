@@ -13,7 +13,7 @@
       </div>
     <%end%>
 
-    <%= form_for(@spot, :html => { :class => 'form' }) do |f|  %>
+    <%= form_for(@spot, :html => { :class => 'form', :id => "new_spot_form" }) do |f|  %>
       <div class="field">
         <%= f.label :name, class: "label" %><br />
         <%= f.text_field :name %>
@@ -26,7 +26,7 @@
 
       <div class="field">
         <%= f.label :location, :class => "label" %><br />
-        <%= f.text_field :location %>
+        <%= f.text_field :location, :onblur => "geocodeAddress()" %>
       </div>
 
       <div class="field">
@@ -39,6 +39,9 @@
         <%= f.text_field :artist %>
       </div>
 
+      <%= f.hidden_field :location_lat %>
+      <%= f.hidden_field :location_lng %>
+
       <div class="actions">
         <%= f.submit "Add Spot", class: "button form-submit" %>
       </div>
@@ -46,3 +49,42 @@
 
   </div>
 <div>
+
+<script>
+
+  const geocodeAddress = () => {
+    console.log("hit");
+    let mapsGeocodeUrl = 'https://maps.googleapis.com/maps/api/geocode/json?address=',
+        address = document.getElementById('spot_location').value,
+        lat = document.getElementById('spot_location_lat'),
+        lng = document.getElementById('spot_location_lng'),
+        apiKey = '&key=AIzaSyASya2rxJ2koyx9Btw--HV9_qLA2zYS9G8',
+        apiCall = mapsGeocodeUrl + address;
+
+    fetch(apiCall,{
+      mode: 'cors'
+    })
+      .then(data => {
+        if (data.ok) {
+          return data;
+        } else {
+          let errorMessage = `${data.status} (${data.statusText})`,
+              error = new Error(errorMessage);
+          throw(error);
+        }
+      })
+      .then(data => data.json())
+      .then(dataJson => {
+
+        let pos = dataJson.results[0].geometry.location;
+        lat.value = pos.lat;
+        lng.value = pos.lng;
+
+      })
+      .catch(
+        error => console.error(`Error in fetch: ${error.message}`)
+      );
+
+  }
+
+</script>

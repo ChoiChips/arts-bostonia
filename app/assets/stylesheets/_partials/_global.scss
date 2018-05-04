@@ -15,3 +15,10 @@ body {
     background-color: $color-body-background;
   }
 }
+
+.site-mission {
+  color: $color-secondary;
+  text-shadow: 1px 1px $white;
+  margin: 0 0 15px;
+  font-family: $font-primary;
+}

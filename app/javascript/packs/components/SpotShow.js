@@ -35,8 +35,8 @@ const SpotShow = (props) => {
           <h4>Artist</h4>
           <p>{artist}</p>
         </div>
-        <div className="columns medium-6 text-right small-text-right">
-          <img src={url} />
+        <div className="columns medium-6 text-right small-text-center">
+          <img src={url} className="spot-show-image" />
         </div>
       </div>
     </div>

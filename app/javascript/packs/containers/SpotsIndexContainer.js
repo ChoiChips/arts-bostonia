@@ -95,7 +95,7 @@ class SpotsIndexContainer extends Component {
       if (displayedSpots.length === this.state.spots.length || displayedSpots.length === this.state.searchResults.length) {
         showMoreButton = <div></div>
       } else {
-        showMoreButton = <button id="show-more-button" onClick={this.showMoreResults}>Show More</button>
+        showMoreButton = <button id="show-more-button" className="button" onClick={this.showMoreResults}>Show More</button>
       }
     }
 

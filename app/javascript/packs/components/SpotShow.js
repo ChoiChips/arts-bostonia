@@ -29,7 +29,7 @@ const SpotShow = (props) => {
           <h4>Discovered by</h4>
           <p>Spotter {props.userId}</p>
           <a href={`https://www.google.com/maps/dir//${props.location}/`} target="_blank">
-            <img width="400" src={`https://maps.googleapis.com/maps/api/staticmap?center=${props.location}&zoom=16+&size=400x200&scale=1&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7color:blue%7Clabel:S%7C11211%7C11206%7C11222&key=AIzaSyASya2rxJ2koyx9Btw--HV9_qLA2zYS9G8`} alt="Directions"/>
+            <img width="400" src={`https://maps.googleapis.com/maps/api/staticmap?center=${props.location}&zoom=15+&size=400x200&scale=1&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7color:red%7C${props.lat},${props.lng}&key=AIzaSyASya2rxJ2koyx9Btw--HV9_qLA2zYS9G8`} alt="Directions"/>
           </a>
           <p>{props.location} - <a href={`https://www.google.com/maps/dir//${props.location}/`} target="_blank">Directions</a></p>
           <h4>Artist</h4>

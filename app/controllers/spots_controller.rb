@@ -1,6 +1,3 @@
-require 'open-uri'
-require 'json'
-
 class SpotsController < ApplicationController
 
   before_action :authorize_user, except: [:index,:show]
@@ -19,14 +16,6 @@ class SpotsController < ApplicationController
   def create
     @spot = Spot.new(spot_params)
     @spot.user = current_user
-
-    # maps_api = "https://maps.googleapis.com/maps/api/geocode/json?address="
-    # maps_key = "&key=AIzaSyDdoQwbpjX0qKeTQ5prao4PBCHRp2z7K0g"
-    # maps_spot_address = @spot.location
-    # maps_api_call = maps_api + maps_spot_address + maps_key
-    # response = JSON.parse(open(maps_api_call).read)
-
-    binding.pry
 
     if @spot.save
       flash[:success] = 'Spot added successfully'

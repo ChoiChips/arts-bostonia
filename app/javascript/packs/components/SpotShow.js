@@ -20,7 +20,7 @@ const SpotShow = (props) => {
           <h4>Description</h4>
           <p>{props.description}</p>
           <a href={`https://www.google.com/maps/dir//${props.location}/`} target="_blank">
-            <img width="400" src={`https://maps.googleapis.com/maps/api/staticmap?center=${props.location}&zoom=13&size=400x200&scale=1&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7color:blue%7Clabel:S%7C11211%7C11206%7C11222&key=AIzaSyASya2rxJ2koyx9Btw--HV9_qLA2zYS9G8`} alt="Directions"/>
+            <img width="400" src={`https://maps.googleapis.com/maps/api/staticmap?center=${props.location}&zoom=16+&size=400x200&scale=1&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7color:blue%7Clabel:S%7C11211%7C11206%7C11222&key=AIzaSyASya2rxJ2koyx9Btw--HV9_qLA2zYS9G8`} alt="Directions"/>
           </a>
           <p>{props.location} - <a href={`https://www.google.com/maps/dir//${props.location}/`} target="_blank">Directions</a></p>
           <p>{props.artist}</p>
@@ -35,6 +35,3 @@ const SpotShow = (props) => {
 
 
 export default SpotShow;
-
-
-// <img width="400" src={`https://maps.googleapis.com/maps/api/staticmap?center=${props.location}&zoom=13&size=400x200&scale=1&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7color:blue%7Clabel:S%7C11211%7C11206%7C11222&key=AIzaSyASya2rxJ2koyx9Btw--HV9_qLA2zYS9G8`} alt="Directions"/>

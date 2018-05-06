@@ -38,8 +38,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'active_model_serializers'
 
-group :development, :test do
-  gem 'dotenv-rails'
+group :development do
+  gem "dotenv-rails"
 end
 
 group :development do

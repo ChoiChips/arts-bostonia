@@ -37,7 +37,7 @@ https://artsbostonia.herokuapp.com
 * **Christian C.**
 (https://github.com/ChoiChips)
 * **Evan H.**
-(https://github.com/AppDevEvan)
+(https://github.com/SimplexDev)
 * **Greg G.**
 (https://github.com/garabedium)
 * **Daniel D.**

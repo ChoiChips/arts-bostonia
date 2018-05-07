@@ -109,11 +109,9 @@ class SpotsIndexContainer extends Component {
         <div className="row text-center">
           <div className="column">
             <h1 className="site-mission">Find and Review Boston's Public Art Spots</h1>
-            <div className="home-static-map">
-              <a href="/map" className="map-link">
-                <img src="https://arts-bostonia.s3.amazonaws.com/arts-bostonia-production/map-artsbostonia.png" className="map-image" alt="ArtsBostonia spots map"/>
-              </a>
-            </div>
+            <a href="/map" className="home-map-link">
+              <img src="https://arts-bostonia.s3.amazonaws.com/arts-bostonia-production/map-artsbostonia.png" className="map-image" alt="ArtsBostonia spots map"/>
+            </a>
           </div>
         </div>
         <div className="row spot-container">

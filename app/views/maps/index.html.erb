@@ -42,6 +42,9 @@ let control = {
             });
           }
         })
+
+      })
+      .then( () => {
         initMap();
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));

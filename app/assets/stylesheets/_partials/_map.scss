@@ -13,21 +13,19 @@ $map-breakpoint-min: 400px;
     height: 500px;
 }
 
-.home-static-map {
+.home-map-link {
+  width: 100%;
   margin-bottom: 25px;
   border: solid 2px #ddd;
+  display: block;
+  background-image: none;
   @media screen and (max-width: $map-breakpoint) {
     background-image: url('https://arts-bostonia.s3.amazonaws.com/arts-bostonia-production/map-mobile.png');
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     margin: 25px auto;
     height: 200px;
-  }
-  .map-link {
-    width: 100%;
-
-    display: block;
-    @media screen and (max-width: $map-breakpoint) {
+    .map-image {
       display: none;
     }
   }

@@ -20,6 +20,8 @@ To set up on local machine:
 For testing:
 1. Run ```rake db:test:prepare``` then ```rspec```
 
+Official Site: * [ArtsBostonia](https://artsbostonia.herokuapp.com)
+
 ## Built With:
 
 * [React](https://reactjs.org/) - Frontend
